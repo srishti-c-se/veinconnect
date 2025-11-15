@@ -10,9 +10,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_11_15_101815) do
+ActiveRecord::Schema[7.1].define(version: 2025_11_15_124237) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blood_requests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "facility_id", null: false
+    t.string "blood_type"
+    t.string "status"
+    t.string "patient_name"
+    t.integer "patient_phone_number"
+    t.date "needed_by"
+    t.string "message"
+    t.string "quantity"
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["facility_id"], name: "index_blood_requests_on_facility_id"
+    t.index ["user_id"], name: "index_blood_requests_on_user_id"
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.bigint "donor_profile_id", null: false
+    t.bigint "blood_request_id", null: false
+    t.bigint "facility_id", null: false
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blood_request_id"], name: "index_donations_on_blood_request_id"
+    t.index ["donor_profile_id"], name: "index_donations_on_donor_profile_id"
+    t.index ["facility_id"], name: "index_donations_on_facility_id"
+  end
+
+  create_table "donor_profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "blood_type"
+    t.string "donor_status"
+    t.string "eligibility_status"
+    t.date "last_donation_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_donor_profiles_on_user_id"
+  end
+
+  create_table "facilities", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "phone_number"
+    t.string "facility_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "notifiable_type", null: false
+    t.bigint "notifiable_id", null: false
+    t.string "kind"
+    t.json "data"
+    t.datetime "read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +86,20 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_15_101815) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.date "date_of_birth"
+    t.integer "phone"
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "blood_requests", "facilities"
+  add_foreign_key "blood_requests", "users"
+  add_foreign_key "donations", "blood_requests"
+  add_foreign_key "donations", "donor_profiles"
+  add_foreign_key "donations", "facilities"
+  add_foreign_key "donor_profiles", "users"
+  add_foreign_key "notifications", "users"
 end
