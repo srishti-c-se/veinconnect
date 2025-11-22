@@ -102,215 +102,52 @@ facility29 = Facility.create!(name: "Lady Sushil Ramgoolam Clinic", address: "Ro
 
 puts "✅ Done seeding for Facility!"
 
-blood_request1 = Blood_request.create(user_id: user1.id, facility_id: facility1.id,
-    blood_type: "A+",
-    needed_by: "2025-12-25",
-    status: "pending",
-    patient_name: user1.first_name,
-    patient_phone_number: user1.phone,
-    message: "Urgent transfusion needed",
-    quantity: 2,
-    created_at: Time.now,
-    completed_at: nil)
+blood_request1 = Blood_request.create(user_id: user1.id, facility_id: facility1.id, blood_type: "A+", needed_by: "2025-12-25", status: "pending", patient_name: user1.first_name,
+                 patient_phone_number: user1.phone, message: "Urgent transfusion needed",   quantity: 2,  created_at: Time.now, completed_at: nil)
 
+blood_request2 = Blood_request.create(user_id: user2.id, facility_id: facility2.id, blood_type: "O-", needed_by: "2025-12-28",  status: "pending",  patient_name: user2.first_name,
+                 patient_phone_number: user2.phone, message: "Emergency surgery",  quantity: 1, created_at: Time.now,  completed_at: nil)
 
+blood request3 = Blood_request.create(user_id: user3.id, facility_id: facility3.id,  blood_type: "B+", needed_by: "2025-12-30", status: "completed", patient_name: user3.first_name,
+                 patient_phone_number: user3.phone, message: "Scheduled transfusion",  quantity: 3, created_at: Time.now - 2.days, completed_at: Time.now - 1.day)
 
+blood request4 = Blood_request.create(user_id: user4.id, facility_id: facility4.id,  blood_type: "AB-",   needed_by: "2025-11-28", status: "pending",  patient_name: user4.first_name,
+                 patient_phone_number: user4.phone,  message: "Post-surgery support",  quantity: 1,   created_at: Time.now, completed_at: nil)
 
-blood_requests = [
-  {
-    user_id: "user 001",
-    facility_id: 1,
-    blood_type: "A+",
-    needed_by: "2025-12-25",
-    status: "pending",
-    patient_name: "John Doe",
-    patient_phone_number: "52512345",
-    message: "Urgent transfusion needed",
-    quantity: 2,
-    created_at: Time.now,
-    completed_at: nil
-  },
-  {
-    user_id: "user 002",
-    facility_id: 2,
-    blood_type: "O-",
-    needed_by: "2025-12-28",
-    status: "pending",
-    patient_name: "Sarah Ramsamy",
-    patient_phone_number: "58023456",
-    message: "Emergency surgery",
-    quantity: 1,
-    created_at: Time.now,
-    completed_at: nil
-  },
-  {
-    facility_id: 3,
-    blood_type: "B+",
-    needed_by: "2025-12-30",
-    status: "completed",
-    patient_name: "Kevin Pillay",
-    patient_phone_number: "59098765",
-    message: "Scheduled transfusion",
-    quantity: 3,
-    created_at: Time.now - 2.days,
-    completed_at: Time.now - 1.day
-  },
-  {
-    user_id: "user 004",
-    facility_id: 4,
-    blood_type: "AB-",
-    needed_by: "2025-11-28",
-    status: "pending",
-    patient_name: "Anjali Kumar",
-    patient_phone_number: "59876543",
-    message: "Post-surgery support",
-    quantity: 1,
-    created_at: Time.now,
-    completed_at: nil
-  },
-  {
-    user_id: "user 005",
-    facility_id: 5,
-    blood_type: "O+",
-    needed_by: "2025-12-01",
-    status: "completed",
-    patient_name: "Rakesh Singh",
-    patient_phone_number: "52654321",
-    message: "Routine transfusion",
-    quantity: 2,
-    created_at: Time.now - 5.days,
-    completed_at: Time.now - 3.days
-  },
-  {
-    user_id: "user 006",
-    facility_id: 6,
-    blood_type: "A-",
-    needed_by: "2025-12-05",
-    status: "pending",
-    patient_name: "Priya Nath",
-    patient_phone_number: "53456789",
-    message: "Urgent requirement",
-    quantity: 1,
-    created_at: Time.now,
-    completed_at: nil
-  },
-  {
-    user_id: "user 007",
-    facility_id: 7,
-    blood_type: "B-",
-    needed_by: "2025-12-10",
-    status: "completed",
-    patient_name: "Arjun Patel",
-    patient_phone_number: "54781234",
-    message: "Scheduled surgery",
-    quantity: 2,
-    created_at: Time.now - 4.days,
-    completed_at: Time.now - 2.days
-  },
-  {
-    user_id: "user 008",
-    facility_id: 8,
-    blood_type: "AB+",
-    needed_by: "2025-12-12",
-    status: "pending",
-    patient_name: "Leela Reddy",
-    patient_phone_number: "55098765",
-    message: "Accident case",
-    quantity: 1,
-    created_at: Time.now,
-    completed_at: nil
-  },
-  {
-    user_id: "user 009",
-    facility_id: 9,
-    blood_type: "O-",
-    needed_by: "2025-12-15",
-    status: "completed",
-    patient_name: "Vikram Shah",
-    patient_phone_number: "56012345",
-    message: "Routine transfusion",
-    quantity: 2,
-    created_at: Time.now - 6.days,
-    completed_at: Time.now - 3.days
-  },
-  {
-    user_id: "user 010",
-    facility_id: 10,
-    blood_type: "A+",
-    needed_by: "2025-12-18",
-    status: "pending",
-    patient_name: "Anita Chowdhury",
-    patient_phone_number: "57890123",
-    message: "Emergency surgery",
-    quantity: 1,
-    created_at: Time.now,
-    completed_at: nil
-  },
-  {
-    user_id: "user 011",
-    facility_id: 11,
-    blood_type: "B+",
-    needed_by: "2025-12-20",
-    status: "completed",
-    patient_name: "Rohan Maharaj",
-    patient_phone_number: "58765432",
-    message: "Post-surgery",
-    quantity: 3,
-    created_at: Time.now - 7.days,
-    completed_at: Time.now - 5.days
-  },
-  {
-    user_id: "user 012",
-    facility_id: 12,
-    blood_type: "AB-",
-    needed_by: "2025-12-22",
-    status: "pending",
-    patient_name: "Nisha Dewan",
-    patient_phone_number: "59987654",
-    message: "Urgent transfusion",
-    quantity: 1,
-    created_at: Time.now,
-    completed_at: nil
-  },
-  {
-    user_id: "user 013",
-    facility_id: 13,
-    blood_type: "O+",
-    needed_by: "2025-12-24",
-    status: "completed",
-    patient_name: "Sanjay Bhandari",
-    patient_phone_number: "52345678",
-    message: "Scheduled transfusion",
-    quantity: 2,
-    created_at: Time.now - 3.days,
-    completed_at: Time.now - 1.day
-  },
-  {
-    user_id: "user 014",
-    facility_id: 14,
-    blood_type: "A-",
-    needed_by: "2025-12-26",
-    status: "pending",
-    patient_name: "Meena Varma",
-    patient_phone_number: "53678901",
-    message: "Accident case",
-    quantity: 1,
-    created_at: Time.now,
-    completed_at: nil
-  },
-  {
-    user_id: "user 015",
-    facility_id: 15,
-    blood_type: "B-",
-    needed_by: "2025-12-28",
-    status: "completed",
-    patient_name: "Aditya Singh",
-    patient_phone_number: "54901234",
-    message: "Scheduled surgery",
-    quantity: 2,
-    created_at: Time.now - 4.days,
-    completed_at: Time.now - 2.days
-  },
+blood request5 = Blood_request.create(user_id: user5.id, facility_id: facility5.id, blood_type: "O+", needed_by: "2025-12-01",  status: "completed",  patient_name: user5.first_name,
+                 patient_phone_number: user5.phone,  message: "Routine transfusion",   quantity: 2, created_at: Time.now - 5.days, completed_at: Time.now - 3.days)
+
+blood request6 = Blood_request.create(user_id: user6.id, facility_id: facility6.id,  blood_type: "A-", needed_by: "2025-12-05",  status: "pending",  patient_name: user6.first_name,
+                 patient_phone_number: user6.phone,  message: "Urgent requirement",  quantity: 1,   created_at: Time.now,   completed_at: nil)
+
+blood_requests7 = Blood_request.create(user_id: user7.id, facility_id: facility7.id, blood_type: "B-", needed_by: "2025-12-10",  status: "completed", patient_name: user7.first_name,
+                  patient_phone_number: user7.phone, message: "Scheduled surgery", quantity: 2, created_at: Time.now - 4.days, completed_at: Time.now - 2.days)
+
+blood_request8 = Blood_request.create(user_id: user8.id, facility_id: facility8.id,  blood_type: "AB+",  needed_by: "2025-12-12",  status: "pending",  patient_name: user8.first_name,
+                 patient_phone_number: user8.phone, message: "Accident case", quantity: 1, created_at: Time.now,  completed_at: nil)
+
+blood_request9 = Blood_request.create(user_id: user9.id, facility_id: facility9.id,  blood_type: "O-", needed_by: "2025-12-15", status: "completed", patient_name: user9.first_name,
+                 patient_phone_number: user9.phone, message:"Routine transfusion", quantity: 2, created_at: Time.now - 6.days, completed_at: Time.now - 3.days)
+
+blood_request10 = Blood_request.create(user_id: user10.id, facility_id: facility10.id, blood_type:"A+",  needed_by: "2025-12-18", status: "pending", patient_name: user10.first_name,
+                  patient_phone_number: user10.phone,   message: "Emergency surgery",   quantity: 1, created_at: Time.now,   completed_at: nil )
+
+blood_request11 = Blood_request.create(user_id: user11.id, facility_id: facility11.id,  blood_type: "B+",  needed_by: "2025-12-20",   status: "completed",  patient_name: user11.first_name,
+                  patient_phone_number: user11.phone,  message: "Post-surgery",    quantity: 3,   created_at: Time.now - 7.days, completed_at: Time.now - 5.days )
+
+blood_request12 = Blood_request.create(user_id: user12.id, facility_id: facility12.id,  blood_type: "AB-",  needed_by: "2025-12-22",  status: "pending",  patient_name: user12.first_name,
+                  patient_phone_number: user12.phone,   message: "Urgent transfusion",    quantity: 1, created_at: Time.now,   completed_at: nil)
+
+blood_request13 = Blood_request.create(user_id: user13.id, facility_id: facility13.id, blood_type: "O+", needed_by: "2025-12-24", status: "completed",  patient_name: user13.first_name,
+                   patient_phone_number: user13.phone, message: "Scheduled transfusion", quantity: 2, created_at: Time.now - 3.days,  completed_at: Time.now - 1.day)
+
+blood_request14 = Blood_request.create(user_id: user14.id, facility_id: facility14.id, blood_type:"A-", needed_by: "2025-12-26", status: "pending",  patient_name: user14.first_name,
+                  patient_phone_number: user14.phone, message: "Accident case",    quantity: 1,   created_at: Time.now,     completed_at: nil)
+
+blood_request15 = Blood_request.create(user_id: user15.id, facility_id: facility15.id, blood_type: "B-", needed_by: "2025-12-28",   status: "completed", patient_name: user14.first_name,
+                  patient_phone_number: user15.phone,   message: "Scheduled surgery", quantity: 2, created_at: Time.now - 4.days, completed_at: Time.now - 2.days)
+
+blood_requests16 = Blood_request.create(user_id; user16.id, facility_)
   {
     user_id: "user 016",
     facility_id: 16,
