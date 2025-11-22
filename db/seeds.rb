@@ -10,322 +10,114 @@
 puts 'Cleaning database...'
 Facility.destroy_all
 
-puts '🌱 Seeding hospitals and clinics in Mauritius...'
+puts '🌱 Seeding Users...'
+user1 = User.create!(first_name: "John", last_name: "Doe", date_of_birth: "1985-03-15",
+  email: "john.doe@example.com",password: "password123",phone_number: "52512345",address: "Quatre Bornes, Mauritius",is_donor: false)
+user2 = User.create!(first_name: "Sarah",last_name: "Ramsamy", date_of_birth: "1990-07-22",
+  email: "sarah.ramsamy@example.com",password: "password123",phone_number: "58023456", address: "Port Louis, Mauritius",is_donor:false,)
+user3 = User.create!(first_name: "Kevin",last_name: "Pillay",date_of_birth: "1995-01-10",
+  email: "kevin.pillay@example.com",password: "password123",phone_number: "59098765",address: "Curepipe, Mauritius", is_donor:false,)
+user4 = User.create!(first_name: "Anjali",last_name: "Kumar",date_of_birth: "1988-04-05",
+  email: "anjali.kumar@example.com",password: "password123",phone_number: "59876543",address: "Rose Hill, Mauritius",  is_donor:false,)
+user4 = User.create!(first_name: "Rakesh",last_name: "Singh",date_of_birth: "1979-12-19",
+  email: "rakesh.singh@example.com",password: "password123",phone_number: "52654321",address: "Vacoas, Mauritius",is_donor:false,)
+user5 = User.create!(first_name: "Priya",last_name: "Nath",date_of_birth: "1992-11-11",
+  email: "priya.nath@example.com", password: "password123", phone_number: "53456789",address: "Grand Baie, Mauritius",is_donor:false)
+user6 = User.create!(first_name: "Priya", last_name: "Nath", date_of_birth: "1992-11-11",
+  email: "priya.nath@example.com", password: "password123", phone_number: "53456789", address: "Grand Baie, Mauritius", is_donor: false)
+user7 = User.create!(first_name: "Arjun", last_name: "Patel", date_of_birth: "1983-06-25",
+  email: "arjun.patel@example.com", password: "password123", phone_number: "54781234", address: "Flic en Flac, Mauritius", is_donor: false)
+user8 = User.create!(first_name: "Leela", last_name: "Reddy", date_of_birth: "1996-09-17",
+  email: "leela.reddy@example.com", password: "password123", phone_number: "55098765", address: "Mahebourg, Mauritius", is_donor: false)
+user9 = User.create!(first_name: "Vikram", last_name: "Shah", date_of_birth: "1987-05-30",
+  email: "vikram.shah@example.com", password: "password123", phone_number: "56012345", address: "Curepipe, Mauritius", is_donor: false)
+user10 = User.create!(first_name: "Anita", last_name: "Chowdhury", date_of_birth: "1991-03-08",
+  email: "anita.chowdhury@example.com", password: "password123", phone_number: "57890123", address: "Port Louis, Mauritius", is_donor: false)
+user11 = User.create!(first_name: "Rohan", last_name: "Maharaj", date_of_birth: "1989-08-21",
+  email: "rohan.maharaj@example.com", password: "password123", phone_number: "58765432", address: "Quatre Bornes, Mauritius", is_donor: false)
+user12 = User.create!(first_name: "Nisha", last_name: "Dewan", date_of_birth: "1993-12-14",
+  email: "nisha.dewan@example.com", password: "password123", phone_number: "59987654", address: "Grand Baie, Mauritius", is_donor: false)
+user13 = User.create!(first_name: "Sanjay", last_name: "Bhandari", date_of_birth: "1981-02-02",
+  email: "sanjay.bhandari@example.com", password: "password123", phone_number: "52345678", address: "Rose Hill, Mauritius", is_donor: false)
+user14 = User.create!(first_name: "Meena", last_name: "Varma", date_of_birth: "1986-07-07",
+  email: "meena.varma@example.com", password: "password123", phone_number: "53678901", address: "Vacoas, Mauritius", is_donor: false)
+user15 = User.create!(first_name: "Aditya", last_name: "Singh", date_of_birth: "1994-04-28",
+  email: "aditya.singh@example.com", password: "password123", phone_number: "54901234", address: "Flic en Flac, Mauritius", is_donor: true)
+user16 = User.create!(first_name: "Priyanka", last_name: "Rai", date_of_birth: "1990-11-03",
+  email: "priyanka.rai@example.com", password: "password123", phone_number: "55234567", address: "Curepipe, Mauritius", is_donor: true)
+user17 = User.create!(first_name: "Rajesh", last_name: "Sharma", date_of_birth: "1982-06-15",
+  email: "rajesh.sharma@example.com", password: "password123", phone_number: "56789012", address: "Mahebourg, Mauritius", is_donor: true)
+user18 = User.create!(first_name: "Sunita", last_name: "Kapoor", date_of_birth: "1995-09-09",
+  email: "sunita.kapoor@example.com", password: "password123", phone_number: "57654321", address: "Grand Baie, Mauritius", is_donor: true)
+user19 = User.create!(first_name: "Manish", last_name: "Gupta", date_of_birth: "1984-12-20",
+  email: "manish.gupta@example.com", password: "password123", phone_number: "58345678", address: "Port Louis, Mauritius", is_donor: true)
+user20 = User.create!(first_name: "Kavita", last_name: "Chopra", date_of_birth: "1987-03-30",
+  email: "kavita.chopra@example.com", password: "password123", phone_number: "59012345", address: "Quatre Bornes, Mauritius", is_donor: true)
+user21 = User.create!(first_name: "Amit", last_name: "Desai", date_of_birth: "1988-08-18",
+  email: "amit.desai@example.com", password: "password123", phone_number: "59876543", address: "Rose Hill, Mauritius", is_donor: true)
+user22 = User.create!(first_name: "Rina", last_name: "Patel", date_of_birth: "1991-05-12",
+  email: "rina.patel@example.com", password: "password123", phone_number: "50765432", address: "Vacoas, Mauritius", is_donor: true)
+user23 = User.create!(first_name: "Vijay", last_name: "Nair", date_of_birth: "1983-01-25",
+  email: "vijay.nair@example.com", password: "password123", phone_number: "51234567", address: "Curepipe, Mauritius", is_donor: true)
+user24 = User.create!(first_name: "Nandini", last_name: "Rao", date_of_birth: "1996-10-11",
+  email: "nandini.rao@example.com", password: "password123", phone_number: "51987654", address: "Flic en Flac, Mauritius", is_donor: true)
+user25 = User.create!(first_name: "Harish", last_name: "Mehta", date_of_birth: "1980-07-03",
+  email: "harish.mehta@example.com", password: "password123", phone_number: "52345679", address: "Grand Baie, Mauritius", is_donor: true)
+user26 = User.create!(first_name: "Pooja", last_name: "Sharma", date_of_birth: "1992-02-28",
+  email: "pooja.sharma@example.com", password: "password123", phone_number: "53098765", address: "Mahebourg, Mauritius", is_donor: true)
+user27 = User.create!(first_name: "Raj", last_name: "Chand", date_of_birth: "1985-09-14",
+  email: "raj.chand@example.com", password: "password123", phone_number: "54012345", address: "Quatre Bornes, Mauritius", is_donor: true)
 
-facilities = [
-  { name: "Victoria", address: "Quatre Bornes, Mauritius", phone_number: "4253031", facility_type: "Hospital" },
-  { name: "Jeevanjee Hospital", address: "Port Louis, Mauritius", phone_number: "2031002", facility_type: "Hospital" },
-  { name: "Wellkin Hospital", address: "Moka, Mauritius", phone_number: "6051000", facility_type: "Hospital" },
-  { name: "MedPoint Clinic", address: "Grand Baie, Mauritius", phone_number: "4267777", facility_type: "Clinic" },
-  { name: "C-Care Darné", address: "Floréal, Mauritius", phone_number: "6012300", facility_type:"Clinic" },
-  { name: "C-Care Moka", address: "Royal Road, Moka, Mauritius", phone_number: "6051000", facility_type: "Clinic" },
-  { name: "C-Care Tamarin", address: "Tamarin, Mauritius", phone_number: "4601900", facility_type: "Clinic" },
-  { name: "Clinique du Nord", address: "Grand Baie, Mauritius", phone_number: "2472532", facility_type: "Clinic" },
-  { name: "Victoria Clinic", address: "Quatre Bornes, Mauritius", phone_number: "4020800", facility_type: "Clinic" },
-  { name: "Jeetoo Hospital", address: "Port Louis, Mauritius", phone_number: "2031001", facility_type: "Hospital" },
-  { name: "Sun Medical Clinic", address: "Curepipe, Mauritius", phone_number: "6061300", facility_type: "Clinic" },
-  { name: "Artemis Curepipe Hospital", address: "Curepipe,", phone_number: "6515050", facility_type: "Clinic" },
-  { name: "C-Care Grand Baie", address: "Grand Baie, Mauritius", phone_number: "6012500", facility_type: "Clinic" },
-  { name: "Premium Care Clinic", address: "Vacoas, Mauritius", phone_number: "4908128", facility_type: "Clinic" },
-  { name: "Nirvaran Clinic", address: "Quatre Bornes, Mauritius", phone_number: "55063945", facility_type: "Clinic" },
-  { name: "Clinique Ferrière", address: "Curepipe, Mauritius", phone_number: "6763332", facility_type: "Clinic" },
-  { name: "Jawaharlal Nehru", address: "Rose Belle, Mauritius", phone_number: "6037000", facility_type: "Hospital" },
-  { name: "RightNow Medical Hub", address: "Curepipe, Mauritius", phone_number: "54794843", facility_type: "Clinic" },
-  { name: "City Clinic", address: "Port Louis, Mauritius", phone_number: "2011600", facility_type: "Clinic" },
-  { name: "Medic World", address: "Quatre Bornes, Mauritius", phone_number: "4073000", facility_type: "Clinic" },
-  { name: "Clinique Muller", address: "Curepipe, Mauritius", phone_number: "6702911", facility_type: "Clinic" },
-  { name: "Phoenix Health Centre", address: "Vacoas, Mauritius", phone_number: "6964286", facility_type: "Clinic" },
-  { name: "Rose Hill Centre", address: "Rose Hill, Mauritius", phone_number: "4541937", facility_type: "Clinic" },
-  { name: "Medical Surgical Centre", address: "Floreal, Mauritius", phone_number: "6012300", facility_type: "Clinic" },
-  { name: "Forest-Side Health Center", address: "Mauritius", phone_number: "6742647", facility_type: "Clinic" },
-  { name: "Holyrood Community Centre", address: "Vacoas, Mauritius", phone_number: "6973073", facility_type: "Clinic" },
-  { name: "Mahebourg Hospital", address: "Mahebourg, Mauritius", phone_number: "6042000", facility_type: "Hospital" },
-  { name: "Eagle Clinic", address: "Central Flacq, Mauritius", phone_number: "4605500", facility_type: "Clinic" },
-  { name: "Lady Sushil Ramgoolam", address: "Belveder, Mauritius", phone_number: "4181364", facility_type: "Clinic" }
-]
+puts "Seeding Facilties!!!!!!!!!"
 
-facilities.each do |facility|
-  Facility.create!(facility)
-end
+facility1 = Facility.create!(name: "Victoria Hospital", address: "Volcy Pougnet Street, Quatre Bornes, Mauritius", phone_number: "4253031", facility_type: "hospital")
+facility2 = Facility.create!(name: "Jeevanjee Hospital", address: "12-14 Joseph Riviere Street, Port Louis, Mauritius", phone_number: "2031002", facility_type: "hospital")
+facility3 = Facility.create!(name: "Wellkin Hospital", address: "Royal Road, Moka, Mauritius", phone_number: "6051000", facility_type: "hospital")
+facility4 = Facility.create!(name: "MedPoint Clinic", address: "Royal Road, Grand Baie, Mauritius", phone_number: "4267777", facility_type: "clinic")
+facility5 = Facility.create!(name: "C-Care Darné", address: "Darné Road, Floréal, Mauritius", phone_number: "6012300", facility_type: "clinic")
+facility6 = Facility.create!(name: "C-Care Moka", address: "Royal Road, Moka, Mauritius", phone_number: "6051000", facility_type: "clinic")
+facility7 = Facility.create!(name: "C-Care Tamarin", address: "Royal Road, Tamarin, Mauritius", phone_number: "4601900", facility_type: "clinic")
+facility8 = Facility.create!(name: "Clinique du Nord", address: "Royal Road, Grand Baie, Mauritius", phone_number: "2472532", facility_type: "clinic")
+facility9 = Facility.create!(name: "Victoria Clinic", address: "St Jean Road, Quatre Bornes, Mauritius", phone_number: "4020800", facility_type: "clinic")
+facility10 = Facility.create!(name: "Jeetoo Hospital", address: "Voley Pougnet Street, Port Louis, Mauritius", phone_number: "2031001", facility_type: "hospital")
+facility11 = Facility.create!(name: "Sun Medical Clinic", address: "Royal Road, Curepipe, Mauritius", phone_number: "6061300", facility_type: "clinic")
+facility12 = Facility.create!(name: "Artemis Curepipe Hospital", address: "Royal Road, Curepipe, Mauritius", phone_number: "6515050", facility_type: "clinic")
+facility13 = Facility.create!(name: "C-Care Grand Baie", address: "Royal Road, Grand Baie, Mauritius", phone_number: "6012500", facility_type: "clinic")
+facility14 = Facility.create!(name: "Premium Care Clinic", address: "St. Paul Road, Vacoas, Mauritius", phone_number: "4908128", facility_type: "clinic")
+facility15 = Facility.create!(name: "Nirvaran Clinic", address: "Braham Kumari Marg, Quatre Bornes, Mauritius", phone_number: "55063945", facility_type: "clinic")
+facility16 = Facility.create!(name: "Clinique Ferrière", address: "Royal Road, Curepipe, Mauritius", phone_number: "6763332", facility_type: "clinic")
+facility17 = Facility.create!(name: "Jawaharlal Nehru Hospital", address: "Rose Belle, Mauritius", phone_number: "6037000", facility_type: "hospital")
+facility18 = Facility.create!(name: "RightNow Medical Hub", address: "Royal Road, Curepipe, Mauritius", phone_number: "54794843", facility_type: "clinic")
+facility19 = Facility.create!(name: "City Clinic", address: "Sir William Newton Street, Port Louis, Mauritius", phone_number: "2011600", facility_type: "clinic")
+facility20 = Facility.create!(name: "Medic World", address: "Royal Road, Quatre Bornes, Mauritius", phone_number: "4073000", facility_type: "clinic")
+facility21 = Facility.create!(name: "Clinique Muller", address: "Royal Road, Curepipe, Mauritius", phone_number: "6702911", facility_type: "clinic")
+facility22 = Facility.create!(name: "Phoenix Health Centre", address: "St. Paul Road, Vacoas, Mauritius", phone_number: "6964286", facility_type: "clinic")
+facility23 = Facility.create!(name: "Rose Hill Centre", address: "Royal Road, Rose Hill, Mauritius", phone_number: "4541937", facility_type: "clinic")
+facility24 = Facility.create!(name: "Medical Surgical Centre", address: "Floreal, Mauritius", phone_number: "6012300", facility_type: "clinic")
+facility25 = Facility.create!(name: "Forest-Side Health Center", address: "Forest-Side, Mauritius", phone_number: "6742647", facility_type: "clinic")
+facility26 = Facility.create!(name: "Holyrood Community Centre", address: "Holyrood Street, Vacoas, Mauritius", phone_number: "6973073", facility_type: "clinic")
+facility27 = Facility.create!(name: "Mahebourg Hospital", address: "Coastal Road, Mahebourg, Mauritius", phone_number: "6042000", facility_type: "hospital")
+facility28 = Facility.create!(name: "Eagle Clinic", address: "Royal Road, Central Flacq, Mauritius", phone_number: "4605500", facility_type: "clinic")
+facility29 = Facility.create!(name: "Lady Sushil Ramgoolam Clinic", address: "Royal Road, Belvedere, Mauritius", phone_number: "4181364", facility_type: "clinic")
 
-puts "✅ Done seeding!"
+puts "✅ Done seeding for Facility!"
 
-users = [
-  {
-    user_id: "user 001",
-    first_name: "John",
-    last_name: "Doe",
-    date_of_birth: "1985-03-15",
-    email: "john.doe@example.com",
-    password: "password123",
-    phone_number: "52512345",
-    address: "Quatre Bornes, Mauritius"
-  },
-  {
-    user_id: "user 002",
-    first_name: "Sarah",
-    last_name: "Ramsamy",
-    date_of_birth: "1990-07-22",
-    email: "sarah.ramsamy@example.com",
-    password: "password123",
-    phone_number: "58023456",
-    address: "Port Louis, Mauritius"
-  },
-  {
-    user_id: "user 003",
-    first_name: "Kevin",
-    last_name: "Pillay",
-    date_of_birth: "1995-01-10",
-    email: "kevin.pillay@example.com",
-    password: "password123",
-    phone_number: "59098765",
-    address: "Curepipe, Mauritius"
-  },
-  {
-    user_id: "user 004",
-    first_name: "Anjali",
-    last_name: "Kumar",
-    date_of_birth: "1988-04-05",
-    email: "anjali.kumar@example.com",
-    password: "password123",
-    phone_number: "59876543",
-    address: "Rose Hill, Mauritius"
-  },
-  {
-    user_id: "user 005",
-    first_name: "Rakesh",
-    last_name: "Singh",
-    date_of_birth: "1979-12-19",
-    email: "rakesh.singh@example.com",
-    password: "password123",
-    phone_number: "52654321",
-    address: "Vacoas, Mauritius"
-  },
-  {
-    user_id: "user 006",
-    first_name: "Priya",
-    last_name: "Nath",
-    date_of_birth: "1992-11-11",
-    email: "priya.nath@example.com",
-    password: "password123",
-    phone_number: "53456789",
-    address: "Grand Baie, Mauritius"
-  },
-  {
-    user_id: "user 007",
-    first_name: "Arjun",
-    last_name: "Patel",
-    date_of_birth: "1983-06-25",
-    email: "arjun.patel@example.com",
-    password: "password123",
-    phone_number: "54781234",
-    address: "Flic en Flac, Mauritius"
-  },
-  {
-    user_id: "user 008",
-    first_name: "Leela",
-    last_name: "Reddy",
-    date_of_birth: "1996-09-17",
-    email: "leela.reddy@example.com",
-    password: "password123",
-    phone_number: "55098765",
-    address: "Mahebourg, Mauritius"
-  },
-  {
-    user_id: "user 009",
-    first_name: "Vikram",
-    last_name: "Shah",
-    date_of_birth: "1987-05-30",
-    email: "vikram.shah@example.com",
-    password: "password123",
-    phone_number: "56012345",
-    address: "Curepipe, Mauritius"
-  },
-  {
-    user_id: "user 010",
-    first_name: "Anita",
-    last_name: "Chowdhury",
-    date_of_birth: "1991-03-08",
-    email: "anita.chowdhury@example.com",
-    password: "password123",
-    phone_number: "57890123",
-    address: "Port Louis, Mauritius"
-  },
-  {
-    user_id: "user 011",
-    first_name: "Rohan",
-    last_name: "Maharaj",
-    date_of_birth: "1989-08-21",
-    email: "rohan.maharaj@example.com",
-    password: "password123",
-    phone_number: "58765432",
-    address: "Quatre Bornes, Mauritius"
-  },
-  {
-    user_id: "user 012",
-    first_name: "Nisha",
-    last_name: "Dewan",
-    date_of_birth: "1993-12-14",
-    email: "nisha.dewan@example.com",
-    password: "password123",
-    phone_number: "59987654",
-    address: "Grand Baie, Mauritius"
-  },
-  {
-    user_id: "user 013",
-    first_name: "Sanjay",
-    last_name: "Bhandari",
-    date_of_birth: "1981-02-02",
-    email: "sanjay.bhandari@example.com",
-    password: "password123",
-    phone_number: "52345678",
-    address: "Rose Hill, Mauritius"
-  },
-  {
-    user_id: "user 014",
-    first_name: "Meena",
-    last_name: "Varma",
-    date_of_birth: "1986-07-07",
-    email: "meena.varma@example.com",
-    password: "password123",
-    phone_number: "53678901",
-    address: "Vacoas, Mauritius"
-  },
-  {
-    user_id: "user 015",
-    first_name: "Aditya",
-    last_name: "Singh",
-    date_of_birth: "1994-04-28",
-    email: "aditya.singh@example.com",
-    password: "password123",
-    phone_number: "54901234",
-    address: "Flic en Flac, Mauritius"
-  },
-  {
-    user_id: "user 016",
-    first_name: "Priyanka",
-    last_name: "Rai",
-    date_of_birth: "1990-11-03",
-    email: "priyanka.rai@example.com",
-    password: "password123",
-    phone_number: "55234567",
-    address: "Curepipe, Mauritius"
-  },
-  {
-    user_id: "user 017",
-    first_name: "Rajesh",
-    last_name: "Sharma",
-    date_of_birth: "1982-06-15",
-    email: "rajesh.sharma@example.com",
-    password: "password123",
-    phone_number: "56789012",
-    address: "Mahebourg, Mauritius"
-  },
-  {
-    user_id: "user 018",
-    first_name: "Sunita",
-    last_name: "Kapoor",
-    date_of_birth: "1995-09-09",
-    email: "sunita.kapoor@example.com",
-    password: "password123",
-    phone_number: "57654321",
-    address: "Grand Baie, Mauritius"
-  },
-  {
-    user_id: "user 019",
-    first_name: "Manish",
-    last_name: "Gupta",
-    date_of_birth: "1984-12-20",
-    email: "manish.gupta@example.com",
-    password: "password123",
-    phone_number: "58345678",
-    address: "Port Louis, Mauritius"
-  },
-  {
-    user_id: "user 020",
-    first_name: "Kavita",
-    last_name: "Chopra",
-    date_of_birth: "1987-03-30",
-    email: "kavita.chopra@example.com",
-    password: "password123",
-    phone_number: "59012345",
-    address: "Quatre Bornes, Mauritius"
-  },
-  {
-    user_id: "user 021",
-    first_name: "Amit",
-    last_name: "Desai",
-    date_of_birth: "1988-08-18",
-    email: "amit.desai@example.com",
-    password: "password123",
-    phone_number: "59876543",
-    address: "Rose Hill, Mauritius"
-  },
-  {
-    user_id: "user 022",
-    first_name: "Rina",
-    last_name: "Patel",
-    date_of_birth: "1991-05-12",
-    email: "rina.patel@example.com",
-    password: "password123",
-    phone_number: "50765432",
-    address: "Vacoas, Mauritius"
-  },
-  {
-    user_id: "user 023",
-    first_name: "Vijay",
-    last_name: "Nair",
-    date_of_birth: "1983-01-25",
-    email: "vijay.nair@example.com",
-    password: "password123",
-    phone_number: "51234567",
-    address: "Curepipe, Mauritius"
-  },
-  {
-    user_id: "user 024",
-    first_name: "Nandini",
-    last_name: "Rao",
-    date_of_birth: "1996-10-11",
-    email: "nandini.rao@example.com",
-    password: "password123",
-    phone_number: "51987654",
-    address: "Flic en Flac, Mauritius"
-  },
-  {
-    user_id: "user 025",
-    first_name: "Harish",
-    last_name: "Mehta",
-    date_of_birth: "1980-07-03",
-    email: "harish.mehta@example.com",
-    password: "password123",
-    phone_number: "52345679",
-    address: "Grand Baie, Mauritius"
-  },
-  {
-    user_id: "user 026",
-    first_name: "Pooja",
-    last_name: "Sharma",
-    date_of_birth: "1992-02-28",
-    email: "pooja.sharma@example.com",
-    password: "password123",
-    phone_number: "53098765",
-    address: "Mahebourg, Mauritius"
-  },
-  {
-    user_id: "user 027",
-    first_name: "Raj",
-    last_name: "Chand",
-    date_of_birth: "1985-09-14",
-    email: "raj.chand@example.com",
-    password: "password123",
-    phone_number: "54012345",
-    address: "Quatre Bornes, Mauritius"
-  }
-]
+blood_request1 = Blood_request.create(user_id: user1.id, facility_id: facility1.id,
+    blood_type: "A+",
+    needed_by: "2025-12-25",
+    status: "pending",
+    patient_name: user1.first_name,
+    patient_phone_number: user1.phone,
+    message: "Urgent transfusion needed",
+    quantity: 2,
+    created_at: Time.now,
+    completed_at: nil)
+
+
+
 
 blood_requests = [
   {
-    blood_request_id: "BR001",
     user_id: "user 001",
     facility_id: 1,
     blood_type: "A+",
@@ -339,7 +131,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR002",
     user_id: "user 002",
     facility_id: 2,
     blood_type: "O-",
@@ -353,8 +144,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR003",
-    user_id: "user 003",
     facility_id: 3,
     blood_type: "B+",
     needed_by: "2025-12-30",
@@ -367,7 +156,6 @@ blood_requests = [
     completed_at: Time.now - 1.day
   },
   {
-    blood_request_id: "BR004",
     user_id: "user 004",
     facility_id: 4,
     blood_type: "AB-",
@@ -381,7 +169,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR005",
     user_id: "user 005",
     facility_id: 5,
     blood_type: "O+",
@@ -395,7 +182,6 @@ blood_requests = [
     completed_at: Time.now - 3.days
   },
   {
-    blood_request_id: "BR006",
     user_id: "user 006",
     facility_id: 6,
     blood_type: "A-",
@@ -409,7 +195,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR007",
     user_id: "user 007",
     facility_id: 7,
     blood_type: "B-",
@@ -423,7 +208,6 @@ blood_requests = [
     completed_at: Time.now - 2.days
   },
   {
-    blood_request_id: "BR008",
     user_id: "user 008",
     facility_id: 8,
     blood_type: "AB+",
@@ -437,7 +221,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR009",
     user_id: "user 009",
     facility_id: 9,
     blood_type: "O-",
@@ -451,7 +234,6 @@ blood_requests = [
     completed_at: Time.now - 3.days
   },
   {
-    blood_request_id: "BR010",
     user_id: "user 010",
     facility_id: 10,
     blood_type: "A+",
@@ -465,7 +247,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR011",
     user_id: "user 011",
     facility_id: 11,
     blood_type: "B+",
@@ -479,7 +260,6 @@ blood_requests = [
     completed_at: Time.now - 5.days
   },
   {
-    blood_request_id: "BR012",
     user_id: "user 012",
     facility_id: 12,
     blood_type: "AB-",
@@ -493,7 +273,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR013",
     user_id: "user 013",
     facility_id: 13,
     blood_type: "O+",
@@ -507,7 +286,6 @@ blood_requests = [
     completed_at: Time.now - 1.day
   },
   {
-    blood_request_id: "BR014",
     user_id: "user 014",
     facility_id: 14,
     blood_type: "A-",
@@ -521,7 +299,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR015",
     user_id: "user 015",
     facility_id: 15,
     blood_type: "B-",
@@ -535,7 +312,6 @@ blood_requests = [
     completed_at: Time.now - 2.days
   },
   {
-    blood_request_id: "BR016",
     user_id: "user 016",
     facility_id: 16,
     blood_type: "AB+",
@@ -549,7 +325,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR017",
     user_id: "user 017",
     facility_id: 17,
     blood_type: "O-",
@@ -563,7 +338,6 @@ blood_requests = [
     completed_at: Time.now - 2.days
   },
   {
-    blood_request_id: "BR018",
     user_id: "user 018",
     facility_id: 18,
     blood_type: "A+",
@@ -577,7 +351,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR019",
     user_id: "user 019",
     facility_id: 19,
     blood_type: "B+",
@@ -591,7 +364,6 @@ blood_requests = [
     completed_at: Time.now - 3.days
   },
   {
-    blood_request_id: "BR020",
     user_id: "user 020",
     facility_id: 20,
     blood_type: "AB-",
@@ -605,7 +377,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR021",
     user_id: "user 021",
     facility_id: 21,
     blood_type: "O+",
@@ -619,7 +390,6 @@ blood_requests = [
     completed_at: Time.now - 4.days
   },
   {
-    blood_request_id: "BR022",
     user_id: "user 022",
     facility_id: 22,
     blood_type: "A-",
@@ -633,7 +403,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR023",
     user_id: "user 023",
     facility_id: 23,
     blood_type: "B-",
@@ -647,7 +416,6 @@ blood_requests = [
     completed_at: Time.now - 2.days
   },
   {
-    blood_request_id: "BR024",
     user_id: "user 024",
     facility_id: 24,
     blood_type: "AB+",
@@ -661,7 +429,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR025",
     user_id: "user 025",
     facility_id: 25,
     blood_type: "O-",
@@ -675,7 +442,6 @@ blood_requests = [
     completed_at: Time.now - 3.days
   },
   {
-    blood_request_id: "BR026",
     user_id: "user 026",
     facility_id: 26,
     blood_type: "A+",
@@ -689,7 +455,6 @@ blood_requests = [
     completed_at: nil
   },
   {
-    blood_request_id: "BR027",
     user_id: "user 027",
     facility_id: 27,
     blood_type: "B+",
