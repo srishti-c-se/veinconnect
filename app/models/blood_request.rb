@@ -8,6 +8,7 @@ class BloodRequest < ApplicationRecord
   BLOOD_TYPES = %w[A- A+ B- B+ AB- AB+ O- O+].freeze
 
   validate :needed_by
+
   private
 
   def needed_by_within_range
