@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :donations, only: [:index, :show]
   resources :facilities, only: [:index]
-  resources :blood_requests
+  resources :donors, only: :index
 
   devise_scope :user do
     get 'sign_up/choose_type', to: 'registrations#choose_type', as: :choose_user_type
