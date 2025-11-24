@@ -1,5 +1,5 @@
 class Donation < ApplicationRecord
-  belongs_to :donor, foreign_key: 'donor_id'
+  belongs_to :donor
   belongs_to :blood_request
   belongs_to :facility
 

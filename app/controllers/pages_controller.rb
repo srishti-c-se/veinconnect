@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   def home
+    @donor = current_user.donor if user_signed_in?
+    # map to show locations of facilities
     @facilities = Facility.all
-
     @markers = @facilities.geocoded.map do |facility|
       {
         lat: facility.latitude,

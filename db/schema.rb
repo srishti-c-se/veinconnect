@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_11_24_053207) do
+ActiveRecord::Schema[7.1].define(version: 2025_11_24_070157) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,14 +33,14 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_24_053207) do
   end
 
   create_table "donations", force: :cascade do |t|
-    t.bigint "donor_profile_id", null: false
+    t.bigint "donor_id", null: false
     t.bigint "blood_request_id", null: false
     t.bigint "facility_id", null: false
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["blood_request_id"], name: "index_donations_on_blood_request_id"
-    t.index ["donor_profile_id"], name: "index_donations_on_donor_profile_id"
+    t.index ["donor_id"], name: "index_donations_on_donor_id"
     t.index ["facility_id"], name: "index_donations_on_facility_id"
   end
 
@@ -102,7 +102,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_24_053207) do
   add_foreign_key "blood_requests", "facilities"
   add_foreign_key "blood_requests", "users"
   add_foreign_key "donations", "blood_requests"
-  add_foreign_key "donations", "donors", column: "donor_profile_id"
+  add_foreign_key "donations", "donors"
   add_foreign_key "donations", "facilities"
   add_foreign_key "donors", "users"
   add_foreign_key "notifications", "blood_requests"
