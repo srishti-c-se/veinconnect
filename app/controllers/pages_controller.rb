@@ -11,5 +11,10 @@ class PagesController < ApplicationController
         marker_html: render_to_string(partial: "facilities/marker", locals: { facility: facility })
       }
     end
+    # urgent Blood requests
+    @urgent_requests = BloodRequest.pending.urgent.order(needed_by: :asc)
+
+    # active Blood requests sorted by urgency and date
+    @normal_requests = BloodRequest.pending.active.order(urgency: :desc, needed_by: :asc)
   end
 end

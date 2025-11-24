@@ -26,8 +26,35 @@
     </div>
     <div class='cards-donation'>
       <div class='card'>
-        <p>Urgent Requests in your region</p>
-        <%# <%= @blood_requests %>
+        <% if @urgent_requests.any? %>
+          <div class="urgent-requests-section">
+            <%= link_to blood_requests_path(sort: 'urgency', urgency: 'urgent') do %>
+              <div class="card-body text-center p-4">
+                <div class="urgent-indicator mb-3">
+                  <i class="fas fa-exclamation-triangle fa-3x text-danger"></i>
+                </div>
+                <h2 class='text-danger-mb-2'>Urgent Blood Requests</h2>
+                <div class="urgent-count display-4 fw-bold text-danger mb-2">
+                  <%= @urgent_requests.count %>
+                </div>
+                <p class="text-muted mb-3">Critical requests need immediate attention</p>
+                <div class="view-all-link">
+                  <span class="btn btn-outline-danger btn-sm">
+                    View All Urgent Requests <i class="fas fa-arrow-right ms-1"></i>
+                  </span>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="card-body text-center p-4">
+            <div class="no-urgent mb-3">
+              <i class="fas fa-check-circle fa-3x text-success"></i>
+            </div>
+            <h3 class="text-success mb-2">No Urgent Requests</h3>
+            <p class="text-muted">All blood needs are currently met</p>
+        </div>
+      <% end %>
       </div>
       <div class='card'>
         <p>Your last Donation</p>
