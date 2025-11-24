@@ -3,7 +3,9 @@ class BloodRequest < ApplicationRecord
   belongs_to :facility
   has_many :donations, dependent: :destroy
   has_many :notifications, dependent: :destroy
-  has_many :messages, dependent: :destroy
+  # has_many :messages, dependent: :destroy
+
+  BLOOD_TYPES = %w[A- A+ B- B+ AB- AB+ O- O+].freeze
 
   validate :needed_by_within_range
   validates :quantity, numericality: { greater_than: 0 }
