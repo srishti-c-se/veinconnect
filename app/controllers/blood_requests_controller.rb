@@ -1,7 +1,7 @@
 class BloodRequestsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @blood_requests = BloodRequest.all
+    @blood_requests = current_user.blood_requests
   end
 
   def new
