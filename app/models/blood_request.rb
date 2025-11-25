@@ -3,26 +3,33 @@ class BloodRequest < ApplicationRecord
   belongs_to :facility
   has_many :donations, dependent: :destroy
   has_many :notifications, dependent: :destroy
-  has_many :messages, dependent: :destroy
+  # has_many :messages, dependent: :destroy
 
-  validate :needed_by
+  BLOOD_TYPES = %w[A- A+ B- B+ AB- AB+ O- O+].freeze
+
+  validate :needed_by_within_range
   validates :quantity, numericality: { greater_than: 0 }
-
-  enum blood_type: {
-    "A-" => 0,
-    "A+" => 1,
-    "AB-" => 2,
-    "AB+" => 3,
-    "B-" => 4,
-    "B+" => 5,
-    "O-" => 6,
-    "O+" => 7
-  }
 
   enum status: {
     pending: 0,
     completed: 1
   }
+
+  scope :for_donor, ->(donor_blood_type) { where(blood_type: donor_blood_type).pending }
+
+  enum urgency: { normal: 0, urgent: 1, critical: 2 }
+
+  # set urgency automatically based on needed_by
+  before_save :set_urgency_based_on_date
+
+  # Urgent requests (urgent & critical)
+  scope :urgent, -> { where(urgency: [:urgent, :critical]) }
+
+  # Critical requests
+  scope :critical, -> { where(urgency: :critical) }
+
+  # active requests
+  scope :active, -> { where(status: :pending) }
 
   private
 
@@ -35,6 +42,21 @@ class BloodRequest < ApplicationRecord
 
     if needed_by > Date.today + 30.days
       errors.add(:needed_by, "must be within 30 days from today")
+    end
+  end
+
+  def set_urgency_based_on_date
+    return if needed_by.blank?
+
+    days_until_needed = (needed_by - Date.today).to_i
+
+    if days_until_needed <= 2
+      self.urgency = :critical
+
+    elsif days_until_needed <=7
+      self.urgency = :urgent
+    else
+      self.urgency = :normal
     end
   end
 end

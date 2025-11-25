@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="main-content">
+  <% if current_user && current_user.donor? %>
+    <%= render partial: 'donor_content' %>
+  <% elsif current_user %>
+    <%= render partial: 'patient_content' %>
+  <% else %>
+    <%= render partial: 'public_home' %> 
+  <% end %>
+</div>
