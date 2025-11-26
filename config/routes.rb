@@ -12,9 +12,14 @@ Rails.application.routes.draw do
   end
 
   resources :blood_requests do
-    resources :notifications, only: :create
     collection do
       get :donor_index
+    end
+  end
+
+  resources :notifications, only: [:index, :show] do
+    member do
+      patch :mark_as_read
     end
   end
 end
