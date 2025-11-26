@@ -15,21 +15,25 @@ class BloodRequest < ApplicationRecord
     completed: 1
   }
 
-  scope :for_donor, ->(donor_blood_type) { where(blood_type: donor_blood_type).pending }
+  enum urgency: {
+    normal: 0,
+    urgent: 1,
+    critical: 2
+  }
 
-  enum urgency: { normal: 0, urgent: 1, critical: 2 }
+
+
+  # Urgent requests (urgent & critical)
+  scope :urgent, -> { where(urgency: [1, 2]) }
+
+  # Critical requests
+  scope :critical, -> { where(urgency: 2) }
+
+  # active requests
+  scope :active, -> { where(status: 0) }
 
   # set urgency automatically based on needed_by
   before_save :set_urgency_based_on_date
-
-  # Urgent requests (urgent & critical)
-  scope :urgent, -> { where(urgency: [:urgent, :critical]) }
-
-  # Critical requests
-  scope :critical, -> { where(urgency: :critical) }
-
-  # active requests
-  scope :active, -> { where(status: :pending) }
 
   private
 

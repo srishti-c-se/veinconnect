@@ -14,9 +14,9 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10",
+      style: "mapbox://styles/mapbox/streets-v12",
       center: [57.5522, -20.3484], // Mauritius coordinates [lng, lat]
-      zoom: 9 // Initial zoom level for Mauritius
+      zoom: 9
     })
 
     this.map.addControl(new MapboxGeocoder({
@@ -48,7 +48,6 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
 
-    // Start with Mauritius center to ensure it's included
     bounds.extend([57.5522, -20.3484])
 
     // Add all markers
@@ -56,8 +55,8 @@ export default class extends Controller {
 
     this.map.fitBounds(bounds, {
       padding: 70,
-      maxZoom: 12, // Reduced maxZoom to prevent over-zooming on small areas
-      duration: 1000 // Added smooth transition
+      maxZoom: 15,
+      duration: 1000
     })
   }
 }
