@@ -1,15 +1,4 @@
 <div class='patient-section'>
-  <div class='navbar-vertical'>
-    <div class='navbar-brand'>
-      <%= image_tag 'realistic-drops-red-blood-isolated-600nw-2444638227.webp', class: 'img-rounded', alt: 'Blood drops' %>
-      <h6><strong>VeinConnect</strong></h6>
-    </div>
-    <div class='navbar-links'>
-      <%= link_to 'Find a Center', facilities_path %>
-      <%= link_to 'Blood Requests', blood_requests_path %>
-    </div>
-  </div>
-
   <%# main content %>
   <div class='container-fluid'>
 
@@ -70,10 +59,14 @@
       <%# Donors index %>
       <%= link_to donors_path, class: 'card-link' do %>
         <div class='card'>
-          <h6><strong>View Donors List</strong></h6>
-          <p>Browse a directory of available Donors</p>
-          <div class='card-icon'>
-            <i class="fa-solid fa-list"></i>
+          <div class='d-flex'>
+            <div class='card-icon'>
+              <i class="fa-solid fa-list"></i>
+            </div>
+            <div class='card-text ms-2'>
+              <h6><strong>View Donors List</strong></h6>
+              <p>Browse a directory of available Donors</p>
+            </div>
           </div>
         </div>
       <% end %>

@@ -4,7 +4,7 @@ class BloodRequestsController < ApplicationController
   def index
     # Blood request for donor's blood type
     if current_user.donor?
-      @blood_requests = BloodRequest.for_donor(current_user.blood_type)
+      @blood_requests = BloodRequest.for_donor(current_user.donor.blood_type)
     else
       # patient blood request history
       @blood_requests = current_user.blood_requests.order(created_at: :desc)
