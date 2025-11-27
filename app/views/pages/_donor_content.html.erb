@@ -1,16 +1,4 @@
 <div class="donor-section">
-  <%# Sidebar %>
-  <div class='navbar-vertical'>
-    <div class='navbar-brand'>
-      <%= image_tag 'realistic-drops-red-blood-isolated-600nw-2444638227.webp', class: 'img-rounded', alt: 'Blood drops' %>
-      <h6><strong>VeinConnect</strong></h6>
-    </div>
-    <div class='navbar-links'>
-      <%= link_to 'Find a Center', facilities_path %>
-      <%= link_to 'Blood Requests', blood_requests_path %>
-      <%= link_to 'Donation History', donations_path %>
-    </div>
-  </div>
   <%# main content %>
   <div class='container-fluid'>
     <%# header %>
@@ -82,18 +70,19 @@
     </div>
 
     <%# stats cards %>
-    <div class='cards-grid'>
+    <div class='cards-grid d-flex'>
       <%# urgent blood requests card %>
       <div class='card urgent-card'>
         <% if @urgent_requests.any? %>
-          <%= link_to blood_requests_path(urgency: ['urgent', 'critical']), class: 'card-link' do %>
+          <%= link_to urgent_requests_blood_requests_path, class: 'card-link' do %>
             <div class='card-body text-center'>
               <i class="fas fa-exclamation-triangle fa-3x text-danger mb-3"></i>
               <h3 class='text-danger mb-2'>Urgent Blood Requests</h3>
               <div class="urgent-count display-4 fw-bold text-danger mb-2">
                 <%= @urgent_requests.count %>
               </div>
-              <p class="text-muted mb-3">Critical requests need immediate attention</p>
+              <p class="text-muted mb-3">Your blood type needed:
+                <%= BloodRequest.urgent_or_critical.active.where(blood_type: current_user.donor.blood_type).count %></p>
               <span class="btn btn-outline-danger btn-sm">View All Requests</span>
             </div>
           <% end %>
@@ -104,56 +93,77 @@
             <p class="text-muted">All blood needs are currently met</p>
           </div>
         <% end %>
-    </div>
-  </div>
-
-  <%# feature cards %>
-  <div class='cards-grid'>
-    <%# Card linked to Blood request index %>
-    <%= link_to blood_requests_path, class: 'card-link' do %>
-      <div class='card feature-card'>
-        <%= image_tag 'GettyImages-890451438.jpg', alt: 'Blood request', class: 'card-image' %>
-        <div class='card-text text-center'>
-          <h6><strong>Current Blood Requests</strong></h6>
-          <p>View and respond to urgent needs.</p>
-        </div>
-        <div class="card-arrow">
-          <i class="fas fa-arrow-right"></i>
-        </div>
       </div>
-    <% end%>
 
-    <%# Card linked to Donation index %>
-    <%= link_to donations_path, class: 'card-link' do %>
-      <div class='card feature-card'>
-        <%= image_tag 'realistic-drops-red-blood-isolated-600nw-2444638227.webp', alt: 'Donation history',
-          class: 'card-image donation-image' %>
-          <div class='card-text text-center'>
-            <h6><strong>My Donation History</strong></h6>
-            <p class="text-muted mb-3">See a log of all your past life-saving donations</p>
-            <%# Blood donation count %>
-            <div class="text-center mb-3">
-              <p class="h3 text-danger mb-1"><%= @donor&.donations&.count || 0 %></p>
-              <p class="small text-muted mb-3">Total Donations</p>
+      <%# Matching blood requests card %>
+      <div class='card matching-card'>
+        <% matching_count = BloodRequest.active.where(blood_type: current_user.donor.blood_type).count %>
+        <%= link_to donor_index_blood_requests_path, class: 'card-link' do %>
+          <div class='card-body text-center'>
+            <i class="fas fa-tint fa-3x text-danger mb-3"></i>
+            <h3 class='text-danger mb-2'>Matching Your Blood Type</h3>
+            <div class="matching-count display-4 fw-bold text-danger mb-2">
+              <%= matching_count %>
             </div>
-        </div>
-        <div class="card-arrow">
-          <i class="fas fa-arrow-right"></i>
-        </div>
+            <p class="text-muted mb-3">Requests matching <%= current_user.donor.blood_type %></p>
+            <span class="btn btn-outline-danger btn-sm">View Matching Requests</span>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
 
-  <%# display map %>
-  <%= render partial: 'shared/map' %>
-  <%# Footer %>
-  <div class='footer-card'>
-    <div class='footer-content'>
-      <div class='footer-text'>
-        <h4>Your Donation Saves Lives</h4>
-        <p>Every pint of blood can save up to three lives. Your contribution is a heroic act that makes a real difference in our community.</p>
+    <%# feature cards %>
+    <div class='cards-grid'>
+      <%# Card linked to Blood request index %>
+      <%= link_to blood_requests_path, class: 'card-link' do %>
+        <div class='card feature-card'>
+          <%= image_tag 'GettyImages-890451438.jpg', alt: 'Blood request', class: 'card-image' %>
+          <div class='card-text text-center'>
+            <h6><strong>All Blood Requests</strong></h6>
+            <p>View all requests including urgent and matching ones.</p>
+            <div class="text-center mb-2">
+              <p class="h4 text-primary mb-1"><%= @blood_requests.count %></p>
+              <p class="small text-muted">Relevant Requests</p>
+            </div>
+          </div>
+          <div class="card-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      <% end%>
+
+      <%# Card linked to Donation index %>
+      <%= link_to donations_path, class: 'card-link' do %>
+        <div class='card feature-card'>
+          <%= image_tag 'realistic-drops-red-blood-isolated-600nw-2444638227.webp', alt: 'Donation history',
+            class: 'card-image donation-image' %>
+            <div class='card-text text-center'>
+              <h6><strong>My Donation History</strong></h6>
+              <p class="text-muted mb-3">See a log of all your past life-saving donations</p>
+              <%# Blood donation count %>
+              <div class="text-center mb-3">
+                <p class="h3 text-danger mb-1"><%= @donor&.donations&.count || 0 %></p>
+                <p class="small text-muted mb-3">Total Donations</p>
+              </div>
+          </div>
+          <div class="card-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%# display map %>
+    <%= render partial: 'shared/map' %>
+    <%# Footer %>
+    <div class='footer-card'>
+      <div class='footer-content'>
+        <div class='footer-text'>
+          <h4>Your Donation Saves Lives</h4>
+          <p>Every pint of blood can save up to three lives. Your contribution is a heroic act that makes a real difference in our community.</p>
+        </div>
+        <%= image_tag 'human-blood-donate-white-background_1308-111266.avif', class: 'footer-image', alt: 'Blood donation' %>
       </div>
-      <%= image_tag 'human-blood-donate-white-background_1308-111266.avif', class: 'footer-image', alt: 'Blood donation' %>
     </div>
   </div>
 </div>
