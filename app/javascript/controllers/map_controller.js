@@ -14,14 +14,15 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v12",
+      style: "mapbox://styles/mapbox/streets-v11",
       center: [57.5522, -20.3484], // Mauritius coordinates [lng, lat]
       zoom: 9
     })
 
     this.map.addControl(new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl
+      mapboxgl: mapboxgl,
+      bbox: [57.3, -20.6, 57.8, -19.9]
     }))
 
     // Wait for map to load before adding markers
