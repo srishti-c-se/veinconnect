@@ -9,13 +9,31 @@
   </div>
 </div>
 
- <div class="blood-request-card">
-    <% if current_user.donor? == current_user %>
-      <div class="d-flex gap-3">
-          <%= button_to "Accept", accept_blood_request_path(@blood_request), method: :patch, class: "btn btn-outline-light" %>
-          <%= button_to "Reject", reject_blood_request_path(@blood_request), method: :patch, class: "btn btn-outline-danger" %>
-      </div>
-    <% end %>
+<% if current_user.is_donor? %>
+
+  <% if @blood_request.pending? %>
+    <div class="mt-3">
+      <%= button_to "Accept Request",
+                    accept_blood_request_path(@blood_request),
+                    method: :patch,
+                    class: "btn btn-success me-2" %>
+
+      <%# <%= button_to "Reject Request",
+                    reject_blood_request_path(@blood_request),
+                    method: :patch,
+                    class: "btn btn-danger" %>
+    </div>
+  <% elsif @blood_request.accepted? %>
+    <div class="mt-3">
+      <%= button_to "Mark as Completed",
+                    complete_blood_request_path(@blood_request),
+                    method: :patch,
+                    class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+<% end %>
+
 
 <div class="container chat">
   <h1>Feel free to chat with the patient below </h1>
