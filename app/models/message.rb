@@ -4,16 +4,16 @@ class Message < ApplicationRecord
 
   validates :body, presence: true
 
+  after_create_commit :broadcast_message
+
   private
 
   def broadcast_message
-    after_create_commit do
-      broadcast_append_to(
-        "thread_#{threadable_type}_#{threadable_id}_messages",
-        target: "messages",
-        partial: "messages/message",
-        locals: { message: self, user: user }
-      )
-    end
+    broadcast_append_to(
+      "thread_#{threadable_type}_#{threadable_id}_messages",
+      target: "messages",
+      partial: "messages/message",
+      locals: { message: self, user: user }
+    )
   end
 end

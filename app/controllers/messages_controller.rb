@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   def create
-    @blood_request = BloodRequest.find(params[:id])
-    @message = @blood_request.messages.new(message_params)
+    @blood_request = BloodRequest.find(params[:blood_request_id])
+    @message = @blood_request.messages.build(message_params)
     @message.user = current_user
 
     if @message.save

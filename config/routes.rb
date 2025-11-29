@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :blood_requests do
+    resources :messages, only: [:create]
     collection do
-      resources :messages, only: :create
       get :donor_index
       get :urgent_requests
       get :accepted_requests
