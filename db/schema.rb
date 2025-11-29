@@ -68,6 +68,18 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_28_194105) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "threadable_type", null: false
+    t.bigint "threadable_id", null: false
+    t.bigint "user_id", null: false
+    t.text "body"
+    t.datetime "read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["threadable_type", "threadable_id"], name: "index_messages_on_threadable"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "notifiable_type", null: false
@@ -249,6 +261,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_28_194105) do
   add_foreign_key "donations", "donors"
   add_foreign_key "donations", "facilities"
   add_foreign_key "donors", "users"
+  add_foreign_key "messages", "users"
   add_foreign_key "notifications", "blood_requests"
   add_foreign_key "notifications", "users"
   add_foreign_key "questions", "users"

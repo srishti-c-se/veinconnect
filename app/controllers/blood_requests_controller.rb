@@ -35,6 +35,8 @@ class BloodRequestsController < ApplicationController
     @blood_request = BloodRequest.find(params[:id])
     @blood_requests = current_user.blood_requests.order(created_at: :desc)
     @notification = Notification.new
+    @message = Message.new
+    @messages = @blood_request.messages
   end
 
   def update
@@ -133,8 +135,7 @@ class BloodRequestsController < ApplicationController
       redirect_to blood_request_path(@blood_request), alert: "You are not authorized to complete this request."
     end
   end
-
-
+  
   private
 
   def blood_request_params

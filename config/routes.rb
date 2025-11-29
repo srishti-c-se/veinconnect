@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/create'
   devise_for :users, controllers: { registrations: 'registrations' }
 
   root to: "pages#home"
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :blood_requests do
+    resources :messages, only: [:create]
     collection do
       get :donor_index
       get :urgent_requests
