@@ -10,39 +10,34 @@ Notification.destroy_all
 puts '🌱 Seeding facilities...'
 
 facilities = [
-  { name: "Victoria Hospital", address: "Quatre Bornes, Mauritius", phone_number: "4253031", facility_type: "Hospital" },
-  { name: "Jeevanjee Hospital", address: "Port Louis, Mauritius", phone_number: "2031002", facility_type: "Hospital" },
-  { name: "Wellkin Hospital", address: "Moka, Mauritius", phone_number: "6051000", facility_type: "Hospital" },
-  { name: "MedPoint Clinic", address: "Grand Baie, Mauritius", phone_number: "4267777", facility_type: "Clinic" },
-  { name: "C-Care Darné", address: "Georges Guibert Street, Floréal, Mauritius", phone_number: "6012300", facility_type: "Clinic" },
-  { name: "C-Care Moka", address: "Royal Road, Moka, Mauritius", phone_number: "6051000", facility_type: "Clinic" },
-  { name: "C-Care Tamarin", address: "District One, Royal Road, La Mivoie, Tamarin, Black River, Mauritius", phone_number: "4601900", facility_type: "Clinic" },
-  { name: "Clinique du Nord", address: "Grand Baie, Mauritius", phone_number: "2472532", facility_type: "Clinic" },
-  { name: "Victoria Clinic", address: "Quatre Bornes, Mauritius", phone_number: "4020800", facility_type: "Clinic" },
-  { name: "Jeetoo Hospital", address: "Port Louis, Mauritius", phone_number: "2031001", facility_type: "Hospital" },
-  { name: "Sun Medical Clinic", address: "Curepipe, Mauritius", phone_number: "6061300", facility_type: "Clinic" },
-  { name: "Artemis Curepipe Hospital", address: "Curepipe, Mauritius", phone_number: "6515050", facility_type: "Clinic" },
-  { name: "C-Care Grand Baie", address: "Chemin Vinght Pied, Mauritius", phone_number: "6012500", facility_type: "Clinic" },
-  { name: "Premium Care Clinic", address: "Beaux-Songes Link Road, Vacoas-Phoenix", phone_number: "4908128", facility_type: "Clinic" },
-  { name: "Nirvaran Clinic", address: "Quatre Bornes, Mauritius", phone_number: "55063945", facility_type: "Clinic" },
-  { name: "Clinique Ferrière de Bon Secours", address: "Curepipe, Mauritius", phone_number: "6763332", facility_type: "Clinic" },
-  { name: "Jawaharlal Nehru Hospital", address: "Rose Belle, Mauritius", phone_number: "6037000", facility_type: "Hospital" },
-  { name: "RightNow Medical Hub", address: "Curepipe, Mauritius", phone_number: "54794843", facility_type: "Clinic" },
-  { name: "City Clinic", address: "Sir Edgar Laurent St, Port Louis", phone_number: "2061600", facility_type: "Clinic" },
-  { name: "Medic World", address: "5 Av. Des Capucines, Quatre Bornes 71705, Mauritius", phone_number: "2061600", facility_type: "Clinic" },
-  { name: "Clinique Muller (Ex-Lorette)", address: "Higginson Street, Curepipe", phone_number: nil, facility_type: "Clinic" },
-  { name: "Clinique Bon Pasteur", address: "G. Pitot St, Beau Bassin-Rose Hill 71362", phone_number: nil, facility_type: "Clinic" },
-  { name: "Phoenix Community Health Centre", address: "Edgar Quirin Avenue, Vacoas-Phoenix", phone_number: nil, facility_type: "Clinic" },
-  { name: "Rose Hill Area Health Centre", address: "B 1, Beau Bassin-Rose Hill", phone_number: nil, facility_type: "Clinic" },
-  { name: "Medical Surgical Centre Ltd", address: "Rue George Gilbert, Floréal, Curepipe 74111", phone_number: nil, facility_type: "Clinic" },
-  { name: "Forest-Side Community Health Center", address: "Curepipe, Mauritius", phone_number: nil, facility_type: "Clinic" },
-  { name: "Holyrood Community Centre", address: "Reservoir Rd, Vacoas-Phoenix", phone_number: nil, facility_type: "Clinic" },
+Facility.create(name: "Victoria Hospital", address: "Quatre Bornes, Mauritius", phone_number: "4253031", facility_type: "Hospital")
+Facility.create(name: "Jeevanjee Hospital", address: "Port Louis, Mauritius", phone_number: "2031002", facility_type: "Hospital")
+Facility.create(name: "Wellkin Hospital", address: "Moka, Mauritius", phone_number: "6051000", facility_type: "Hospital")
+Facility.create(name: "MedPoint Clinic", address: "Grand Baie, Mauritius", phone_number: "4267777", facility_type: "Clinic")
+Facility.create(name: "C-Care Darné", address: "Georges Guibert Street, Floréal, Mauritius", phone_number: "6012300", facility_type: "Clinic")
+Facility.create(name: "C-Care Moka", address: "Royal Road, Moka, Mauritius", phone_number: "6051000", facility_type: "Clinic")
+Facility.create(name: "C-Care Tamarin", address: "District One, Royal Road, La Mivoie, Tamarin, Black River, Mauritius", phone_number: "4601900", facility_type: "Clinic")
+Facility.create(name: "Clinique du Nord", address: "Grand Baie, Mauritius", phone_number: "2472532", facility_type: "Clinic")
+Facility.create(name: "Victoria Clinic", address: "Quatre Bornes, Mauritius", phone_number: "4020800", facility_type: "Clinic")
+Facility.create(name: "Jeetoo Hospital", address: "Port Louis, Mauritius", phone_number: "2031001", facility_type: "Hospital")
+Facility.create(name: "Sun Medical Clinic", address: "Curepipe, Mauritius", phone_number: "6061300", facility_type: "Clinic")
+Facility.create(name: "Artemis Curepipe Hospital", address: "Curepipe, Mauritius", phone_number: "6515050", facility_type: "Clinic")
+Facility.create(name: "C-Care Grand Baie", address: "Chemin Vinght Pied, Mauritius", phone_number: "6012500", facility_type: "Clinic")
+Facility.create(name: "Premium Care Clinic", address: "Beaux-Songes Link Road, Vacoas-Phoenix", phone_number: "4908128", facility_type: "Clinic")
+Facility.create(name: "Nirvaran Clinic", address: "Quatre Bornes, Mauritius", phone_number: "55063945", facility_type: "Clinic")
+Facility.create(name: "Clinique Ferrière de Bon Secours", address: "Curepipe, Mauritius", phone_number: "6763332", facility_type: "Clinic")
+Facility.create(name: "Jawaharlal Nehru Hospital", address: "Rose Belle, Mauritius", phone_number: "6037000", facility_type: "Hospital")
+Facility.create(name: "RightNow Medical Hub", address: "Curepipe, Mauritius", phone_number: "54794843", facility_type: "Clinic")
+Facility.create(name: "City Clinic", address: "Sir Edgar Laurent St, Port Louis", phone_number: "2061600", facility_type: "Clinic")
+Facility.create(name: "Medic World", address: "5 Av. Des Capucines, Quatre Bornes 71705, Mauritius", phone_number: "2061600", facility_type: "Clinic")
+Facility.create(name: "Clinique Muller (Ex-Lorette)", address: "Higginson Street, Curepipe", phone_number: nil, facility_type: "Clinic")
+Facility.create(name: "Clinique Bon Pasteur", address: "G. Pitot St, Beau Bassin-Rose Hill 71362", phone_number: nil, facility_type: "Clinic")
+Facility.create(name: "Phoenix Community Health Centre", address: "Edgar Quirin Avenue, Vacoas-Phoenix", phone_number: nil, facility_type: "Clinic")
+Facility.create(name: "Rose Hill Area Health Centre", address: "B 1, Beau Bassin-Rose Hill", phone_number: nil, facility_type: "Clinic")
+Facility.create(name: "Medical Surgical Centre Ltd", address: "Rue George Gilbert, Floréal, Curepipe 74111", phone_number: nil, facility_type: "Clinic")
+Facility.create(name: "Forest-Side Community Health Center", address: "Curepipe, Mauritius", phone_number: nil, facility_type: "Clinic")
+Facility.create(name: "Holyrood Community Centre", address: "Reservoir Rd, Vacoas-Phoenix", phone_number: nil, facility_type: "Clinic")
 ]
-
-facilities.each do |facility|
-  Facility.create!(facility)
-end
-
 
 puts '🌱 Seeding users...'
 
