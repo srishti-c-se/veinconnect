@@ -45,154 +45,156 @@ end
 
 
 puts '🌱 Seeding users...'
-user1 = { first_name: "Aisha", last_name: "Ramdin", date_of_birth: "1993-04-12", email: "aisha.ramdin@example.com", password: "password123", phone_number: "57981234", address: "Quatre Bornes, Mauritius", created_at: Time.now, updated_at: Time.now }
-user2 = { first_name: "Kevin", last_name: "Appadoo", date_of_birth: "1988-11-22", email: "kevin.appadoo@example.com", password: "password123", phone_number: "58564321", address: "Port Louis, Mauritius", created_at: Time.now, updated_at: Time.now }
-user3 = { first_name: "Marie", last_name: "Duval", date_of_birth: "1990-02-03", email: "marie.duval@example.com", password: "password123", phone_number: "59210234", address: "Curepipe, Mauritius", created_at: Time.now, updated_at: Time.now }
-user4 = { first_name: "Vikash", last_name: "Rughoobur", date_of_birth: "1995-07-14", email: "vikash.rughoobur@example.com", password: "password123", phone_number: "57651209", address: "Vacoas, Mauritius", created_at: Time.now, updated_at: Time.now }
-user5 = { first_name: "Sarah", last_name: "Latour", date_of_birth: "1987-09-25", email: "sarah.latour@example.com", password: "password123", phone_number: "59482211", address: "Rose Hill, Mauritius", created_at: Time.now, updated_at: Time.now }
-user6 = { first_name: "Jason", last_name: "Ng", date_of_birth: "1998-01-19", email: "jason.ng@example.com", password: "password123", phone_number: "58091344", address: "Beau Bassin, Mauritius", created_at: Time.now, updated_at: Time.now }
-user7 = { first_name: "Priya", last_name: "Seetohul", date_of_birth: "1992-06-11", email: "priya.seetohul@example.com", password: "password123", phone_number: "57221198", address: "Flacq, Mauritius", created_at: Time.now, updated_at: Time.now }
-user8 = { first_name: "Miguel", last_name: "Da Silva", date_of_birth: "1985-12-02", email: "miguel.dasilva@example.com", password: "password123", phone_number: "59734122", address: "Moka, Mauritius", created_at: Time.now, updated_at: Time.now }
-user9 = { first_name: "Anjali", last_name: "Bhugaloo", date_of_birth: "1994-08-17", email: "anjali.bhugaloo@example.com", password: "password123", phone_number: "59120017", address: "Goodlands, Mauritius", created_at: Time.now, updated_at: Time.now }
-user10 = { first_name: "Dylan", last_name: "Clement", date_of_birth: "1999-03-28", email: "dylan.clement@example.com", password: "password123", phone_number: "57399821", address: "Mahebourg, Mauritius", created_at: Time.now, updated_at: Time.now }
-user11 = { first_name: "Stephanie", last_name: "Wong", date_of_birth: "1986-10-10", email: "stephanie.wong@example.com", password: "password123", phone_number: "59672210", address: "Port Louis, Mauritius", created_at: Time.now, updated_at: Time.now }
-user12 = { first_name: "Kunal", last_name: "Gopal", date_of_birth: "1991-05-05", email: "kunal.gopal@example.com", password: "password123", phone_number: "58412390", address: "Triolet, Mauritius", created_at: Time.now, updated_at: Time.now }
-user13 = { first_name: "Emma", last_name: "Ramasamy", date_of_birth: "2000-02-14", email: "emma.ramasamy@example.com", password: "password123", phone_number: "57982011", address: "Quatre Bornes, Mauritius", created_at: Time.now, updated_at: Time.now }
-user14 = { first_name: "Yannick", last_name: "Legrand", date_of_birth: "1984-04-30", email: "yannick.legrand@example.com", password: "password123", phone_number: "59564401", address: "Curepipe, Mauritius", created_at: Time.now, updated_at: Time.now }
-user15 = { first_name: "Lina", last_name: "Peerbux", date_of_birth: "1997-06-08", email: "lina.peerbux@example.com", password: "password123", phone_number: "57812209", address: "Vacoas, Mauritius", created_at: Time.now, updated_at: Time.now }
-user16 = { first_name: "Thierry", last_name: "Labonte", date_of_birth: "1989-01-04", email: "thierry.labonte@example.com", password: "password123", phone_number: "59382177", address: "Grand Baie, Mauritius", created_at: Time.now, updated_at: Time.now }
-user17 = { first_name: "Sanjana", last_name: "Mohit", date_of_birth: "1993-09-20", email: "sanjana.mohit@example.com", password: "password123", phone_number: "57720016", address: "Terre Rouge, Mauritius", created_at: Time.now, updated_at: Time.now }
-user18 = { first_name: "Lucas", last_name: "Robert", date_of_birth: "1990-03-10", email: "lucas.robert@example.com", password: "password123", phone_number: "59831190", address: "Port Louis, Mauritius", created_at: Time.now, updated_at: Time.now }
-user19 = { first_name: "Melissa", last_name: "d’Hotman", date_of_birth: "1996-07-01", email: "melissa.dhotman@example.com", password: "password123", phone_number: "57123098", address: "Floréal, Mauritius", created_at: Time.now, updated_at: Time.now }
-user20 = { first_name: "Harish", last_name: "Bheekhun", date_of_birth: "1988-08-09", email: "harish.bheekhun@example.com", password: "password123", phone_number: "57689012", address: "Phoenix, Mauritius", created_at: Time.now, updated_at: Time.now }
-user21 = { first_name: "Amira", last_name: "Rahim", date_of_birth: "1995-11-12", email: "amira.rahim@example.com", password: "password123", phone_number: "59071822", address: "Quatre Bornes, Mauritius", created_at: Time.now, updated_at: Time.now }
-user22 = { first_name: "Jonathan", last_name: "Perrine", date_of_birth: "1987-02-23", email: "jonathan.perrine@example.com", password: "password123", phone_number: "58280117", address: "Curepipe, Mauritius", created_at: Time.now, updated_at: Time.now }
-user23 = { first_name: "Shreya", last_name: "Oodit", date_of_birth: "1998-05-09", email: "shreya.oodit@example.com", password: "password123", phone_number: "59320178", address: "Moka, Mauritius", created_at: Time.now, updated_at: Time.now }
-user24 = { first_name: "Andrew", last_name: "André", date_of_birth: "1985-10-16", email: "andrew.andre@example.com", password: "password123", phone_number: "59911032", address: "Rose Hill, Mauritius", created_at: Time.now, updated_at: Time.now }
-user25 = { first_name: "Farah", last_name: "Abdool", date_of_birth: "1992-12-25", email: "farah.abdool@example.com", password: "password123", phone_number: "57192304", address: "Port Louis, Mauritius", created_at: Time.now, updated_at: Time.now }
-user26 = { first_name: "Ryan", last_name: "Cheung", date_of_birth: "1991-03-29", email: "ryan.cheung@example.com", password: "password123", phone_number: "58870019", address: "Quatre Bornes, Mauritius", created_at: Time.now, updated_at: Time.now }
-user27 = { first_name: "Neha", last_name: "Dowlut", date_of_birth: "1997-09-03", email: "neha.dowlut@example.com", password: "password123", phone_number: "59011098", address: "Triolet, Mauritius", created_at: Time.now, updated_at: Time.now }
+
+user1 = User.create(first_name: "Aisha", last_name: "Ramdin", date_of_birth: "1993-04-12", email: "aisha.ramdin@example.com", password: "password123", phone_number: "57981234", address: "Quatre Bornes, Mauritius")
+user2 = User.create(first_name: "Kevin", last_name: "Appadoo", date_of_birth: "1988-11-22", email: "kevin.appadoo@example.com", password: "password123", phone_number: "58564321", address: "Port Louis, Mauritius")
+user3 = User.create(first_name: "Marie", last_name: "Duval", date_of_birth: "1990-02-03", email: "marie.duval@example.com", password: "password123", phone_number: "59210234", address: "Curepipe, Mauritius")
+user4 = User.create(first_name: "Vikash", last_name: "Rughoobur", date_of_birth: "1995-07-14", email: "vikash.rughoobur@example.com", password: "password123", phone_number: "57651209", address: "Vacoas, Mauritius")
+user5 = User.create(first_name: "Sarah", last_name: "Latour", date_of_birth: "1987-09-25", email: "sarah.latour@example.com", password: "password123", phone_number: "59482211", address: "Rose Hill, Mauritius")
+user6 = User.create(first_name: "Jason", last_name: "Ng", date_of_birth: "1998-01-19", email: "jason.ng@example.com", password: "password123", phone_number: "58091344", address: "Beau Bassin, Mauritius")
+user7 = User.create(first_name: "Priya", last_name: "Seetohul", date_of_birth: "1992-06-11", email: "priya.seetohul@example.com", password: "password123", phone_number: "57221198", address: "Flacq, Mauritius")
+user8 = User.create(first_name: "Miguel", last_name: "Da Silva", date_of_birth: "1985-12-02", email: "miguel.dasilva@example.com", password: "password123", phone_number: "59734122", address: "Moka, Mauritius")
+user9 = User.create(first_name: "Anjali", last_name: "Bhugaloo", date_of_birth: "1994-08-17", email: "anjali.bhugaloo@example.com", password: "password123", phone_number: "59120017", address: "Goodlands, Mauritius")
+user10 = User.create(first_name: "Dylan", last_name: "Clement", date_of_birth: "1999-03-28", email: "dylan.clement@example.com", password: "password123", phone_number: "57399821", address: "Mahebourg, Mauritius")
+user11 = User.create(first_name: "Stephanie", last_name: "Wong", date_of_birth: "1986-10-10", email: "stephanie.wong@example.com", password: "password123", phone_number: "59672210", address: "Port Louis, Mauritius")
+user12 = User.create(first_name: "Kunal", last_name: "Gopal", date_of_birth: "1991-05-05", email: "kunal.gopal@example.com", password: "password123", phone_number: "58412390", address: "Triolet, Mauritius")
+user13 = User.create(first_name: "Emma", last_name: "Ramasamy", date_of_birth: "2000-02-14", email: "emma.ramasamy@example.com", password: "password123", phone_number: "57982011", address: "Quatre Bornes, Mauritius")
+user14 = User.create(first_name: "Yannick", last_name: "Legrand", date_of_birth: "1984-04-30", email: "yannick.legrand@example.com", password: "password123", phone_number: "59564401", address: "Curepipe, Mauritius")
+user15 = User.create(first_name: "Lina", last_name: "Peerbux", date_of_birth: "1997-06-08", email: "lina.peerbux@example.com", password: "password123", phone_number: "57812209", address: "Vacoas, Mauritius")
+user16 = User.create(first_name: "Thierry", last_name: "Labonte", date_of_birth: "1989-01-04", email: "thierry.labonte@example.com", password: "password123", phone_number: "59382177", address: "Grand Baie, Mauritius")
+user17 = User.create(first_name: "Sanjana", last_name: "Mohit", date_of_birth: "1993-09-20", email: "sanjana.mohit@example.com", password: "password123", phone_number: "57720016", address: "Terre Rouge, Mauritius")
+user18 = User.create(first_name: "Lucas", last_name: "Robert", date_of_birth: "1990-03-10", email: "lucas.robert@example.com", password: "password123", phone_number: "59831190", address: "Port Louis, Mauritius")
+user19 = User.create(first_name: "Melissa", last_name: "d’Hotman", date_of_birth: "1996-07-01", email: "melissa.dhotman@example.com", password: "password123", phone_number: "57123098", address: "Floréal, Mauritius")
+user20 = User.create(first_name: "Harish", last_name: "Bheekhun", date_of_birth: "1988-08-09", email: "harish.bheekhun@example.com", password: "password123", phone_number: "57689012", address: "Phoenix, Mauritius")
+user21 = User.create(first_name: "Amira", last_name: "Rahim", date_of_birth: "1995-11-12", email: "amira.rahim@example.com", password: "password123", phone_number: "59071822", address: "Quatre Bornes, Mauritius")
+user22 = User.create(first_name: "Jonathan", last_name: "Perrine", date_of_birth: "1987-02-23", email: "jonathan.perrine@example.com", password: "password123", phone_number: "58280117", address: "Curepipe, Mauritius")
+user23 = User.create(first_name: "Shreya", last_name: "Oodit", date_of_birth: "1998-05-09", email: "shreya.oodit@example.com", password: "password123", phone_number: "59320178", address: "Moka, Mauritius")
+user24 = User.create(first_name: "Andrew", last_name: "André", date_of_birth: "1985-10-16", email: "andrew.andre@example.com", password: "password123", phone_number: "59911032", address: "Rose Hill, Mauritius")
+user25 = User.create(first_name: "Farah", last_name: "Abdool", date_of_birth: "1992-12-25", email: "farah.abdool@example.com", password: "password123", phone_number: "57192304", address: "Port Louis, Mauritius")
+user26 = User.create(first_name: "Ryan", last_name: "Cheung", date_of_birth: "1991-03-29", email: "ryan.cheung@example.com", password: "password123", phone_number: "58870019", address: "Quatre Bornes, Mauritius")
+user27 = User.create(first_name: "Neha", last_name: "Dowlut", date_of_birth: "1997-09-03", email: "neha.dowlut@example.com", password: "password123", phone_number: "59011098", address: "Triolet, Mauritius")
+
+
+
 
 puts "🌱 Seeding for blood request"
-blood_request1 = { blood_request_id: 1, user_id: 1, facility_id: 3, blood_type: "A+", needed_by: "2025-12-05", status: "pending", patient_name: "Aisha Ramdin", patient_phone_number: "57981234", message: "Blood needed for surgery", quantity: 2, created_at: Time.now, completed_at: nil }
-blood_request2 = { blood_request_id: 2, user_id: 2, facility_id: 1, blood_type: "O-", needed_by: "2025-11-28", status: "completed", patient_name: "Kevin Appadoo", patient_phone_number: "58564321", message: "Accident emergency", quantity: 3, created_at: Time.now, completed_at: Time.now }
-blood_request3 = { blood_request_id: 3, user_id: 3, facility_id: 4, blood_type: "B+", needed_by: "2025-12-10", status: "pending", patient_name: "Marie Duval", patient_phone_number: "59210234", message: "Scheduled surgery", quantity: 1, created_at: Time.now, completed_at: nil }
-blood_request4 = { blood_request_id: 4, user_id: 4, facility_id: 2, blood_type: "AB-", needed_by: "2025-12-03", status: "pending", patient_name: "Vikash Rughoobur", patient_phone_number: "57651209", message: "Urgent transfusion", quantity: 2, created_at: Time.now, completed_at: nil }
-blood_request5 = { blood_request_id: 5, user_id: 5, facility_id: 3, blood_type: "O+", needed_by: "2025-12-07", status: "completed", patient_name: "Sarah Latour", patient_phone_number: "59482211", message: "Emergency", quantity: 4, created_at: Time.now, completed_at: Time.now }
-blood_request6 = { blood_request_id: 6, user_id: 6, facility_id: 1, blood_type: "A-", needed_by: "2025-12-01", status: "pending", patient_name: "Jason Ng", patient_phone_number: "58091344", message: "Blood donation required", quantity: 1, created_at: Time.now, completed_at: nil }
-blood_request7 = { blood_request_id: 7, user_id: 7, facility_id: 4, blood_type: "B-", needed_by: "2025-12-15", status: "pending", patient_name: "Priya Seetohul", patient_phone_number: "57221198", message: "Urgent need", quantity: 2, created_at: Time.now, completed_at: nil }
-blood_request8 = { blood_request_id: 8, user_id: 8, facility_id: 3, blood_type: "AB+", needed_by: "2025-12-08", status: "completed", patient_name: "Miguel Da Silva", patient_phone_number: "59734122", message: "Surgery scheduled", quantity: 2, created_at: Time.now, completed_at: Time.now }
-blood_request9 = { blood_request_id: 9, user_id: 9, facility_id: 2, blood_type: "O-", needed_by: "2025-12-12", status: "pending", patient_name: "Anjali Bhugaloo", patient_phone_number: "59120017", message: "Emergency transfusion", quantity: 3, created_at: Time.now, completed_at: nil }
-blood_request10 = { blood_request_id: 10, user_id: 10, facility_id: 1, blood_type: "A+", needed_by: "2025-12-20", status: "completed", patient_name: "Dylan Clement", patient_phone_number: "57399821", message: "Surgery", quantity: 1, created_at: Time.now, completed_at: Time.now }
-blood_request11 = { blood_request_id: 11, user_id: 11, facility_id: 3, blood_type: "B+", needed_by: "2025-12-11", status: "pending", patient_name: "Stephanie Wong", patient_phone_number: "59672210", message: "Blood required urgently", quantity: 2, created_at: Time.now, completed_at: nil }
-blood_request12 = { blood_request_id: 12, user_id: 12, facility_id: 2, blood_type: "O+", needed_by: "2025-12-18", status: "completed", patient_name: "Kunal Gopal", patient_phone_number: "58412390", message: "Accident victim", quantity: 4, created_at: Time.now, completed_at: Time.now }
-blood_request13 = { blood_request_id: 13, user_id: 13, facility_id: 1, blood_type: "AB-", needed_by: "2025-12-05", status: "pending", patient_name: "Emma Ramasamy", patient_phone_number: "57982011", message: "Urgent need for surgery", quantity: 1, created_at: Time.now, completed_at: nil }
-blood_request14 = { blood_request_id: 14, user_id: 14, facility_id: 4, blood_type: "A-", needed_by: "2025-12-09", status: "pending", patient_name: "Yannick Legrand", patient_phone_number: "59564401", message: "Transfusion required", quantity: 2, created_at: Time.now, completed_at: nil }
-blood_request15 = { blood_request_id: 15, user_id: 15, facility_id: 3, blood_type: "O+", needed_by: "2025-12-14", status: "completed", patient_name: "Lina Peerbux", patient_phone_number: "57812209", message: "Surgery", quantity: 3, created_at: Time.now, completed_at: Time.now }
-blood_request16 = { blood_request_id: 16, user_id: 16, facility_id: 2, blood_type: "B-", needed_by: "2025-12-07", status: "pending", patient_name: "Thierry Labonte", patient_phone_number: "59382177", message: "Urgent request", quantity: 2, created_at: Time.now, completed_at: nil }
-blood_request17 = { blood_request_id: 17, user_id: 17, facility_id: 1, blood_type: "AB+", needed_by: "2025-12-13", status: "pending", patient_name: "Sanjana Mohit", patient_phone_number: "57720016", message: "Emergency surgery", quantity: 1, created_at: Time.now, completed_at: nil }
-blood_request18 = { blood_request_id: 18, user_id: 18, facility_id: 4, blood_type: "A+", needed_by: "2025-12-19", status: "completed", patient_name: "Lucas Robert", patient_phone_number: "59831190", message: "Accident emergency", quantity: 3, created_at: Time.now, completed_at: Time.now }
-blood_request19 = { blood_request_id: 19, user_id: 19, facility_id: 3, blood_type: "O-", needed_by: "2025-12-16", status: "pending", patient_name: "Melissa d’Hotman", patient_phone_number: "57123098", message: "Blood required", quantity: 2, created_at: Time.now, completed_at: nil }
-blood_request20 = { blood_request_id: 20, user_id: 20, facility_id: 2, blood_type: "B+", needed_by: "2025-12-22", status: "completed", patient_name: "Harish Bheekhun", patient_phone_number: "57689012", message: "Surgery", quantity: 1, created_at: Time.now, completed_at: Time.now }
-blood_request21 = { blood_request_id: 21, user_id: 21, facility_id: 1, blood_type: "AB-", needed_by: "2025-12-11", status: "pending", patient_name: "Amira Rahim", patient_phone_number: "59071822", message: "Urgent transfusion", quantity: 3, created_at: Time.now, completed_at: nil }
-blood_request22 = { blood_request_id: 22, user_id: 22, facility_id: 4, blood_type: "A-", needed_by: "2025-12-06", status: "pending", patient_name: "Jonathan Perrine", patient_phone_number: "58280117", message: "Blood needed for operation", quantity: 2, created_at: Time.now, completed_at: nil }
-blood_request23 = { blood_request_id: 23, user_id: 23, facility_id: 3, blood_type: "O+", needed_by: "2025-12-20", status: "completed", patient_name: "Shreya Oodit", patient_phone_number: "59320178", message: "Surgery", quantity: 1, created_at: Time.now, completed_at: Time.now }
-blood_request24 = { blood_request_id: 24, user_id: 24, facility_id: 2, blood_type: "B-", needed_by: "2025-12-18", status: "pending", patient_name: "Andrew André", patient_phone_number: "59911032", message: "Emergency blood request", quantity: 2, created_at: Time.now, completed_at: nil }
-blood_request25 = { blood_request_id: 25, user_id: 25, facility_id: 1, blood_type: "AB+", needed_by: "2025-12-21", status: "completed", patient_name: "Farah Abdool", patient_phone_number: "57192304", message: "Accident case", quantity: 3, created_at: Time.now, completed_at: Time.now }
-blood_request26 = { blood_request_id: 26, user_id: 26, facility_id: 4, blood_type: "A+", needed_by: "2025-12-09", status: "pending", patient_name: "Ryan Cheung", patient_phone_number: "58870019", message: "Urgent transfusion", quantity: 1, created_at: Time.now, completed_at: nil }
-blood_request27 = { blood_request_id: 27, user_id: 27, facility_id: 3, blood_type: "O-", needed_by: "2025-12-15", status: "completed", patient_name: "Neha Dowlut", patient_phone_number: "59011098", message: "Surgery", quantity: 2, created_at: Time.now, completed_at: Time.now }
+
+blood_request1 = BloodRequest.create(blood_request_id: 1, user_id: 1, facility_id: 1, blood_type: "A+", needed_by: "2025-12-10", status: "pending", patient_name: "John Doe", patient_phone_number: "57981234", message: "Urgent transfusion needed", quantity: 2, created_at: Time.now, completed_at: nil)
+blood_request2 = BloodRequest.create(blood_request_id: 2, user_id: 2, facility_id: 2, blood_type: "O-", needed_by: "2025-12-12", status: "completed", patient_name: "Alice Smith", patient_phone_number: "58564321", message: "Scheduled surgery", quantity: 3, created_at: Time.now, completed_at: Time.now - 2.days)
+blood_request3 = BloodRequest.create(blood_request_id: 3, user_id: 3, facility_id: 1, blood_type: "B+", needed_by: "2025-12-15", status: "pending", patient_name: "Robert Brown", patient_phone_number: "59210234", message: "Accident case", quantity: 1, created_at: Time.now, completed_at: nil)
+blood_request4 = BloodRequest.create(blood_request_id: 4, user_id: 4, facility_id: 3, blood_type: "AB-", needed_by: "2025-12-20", status: "completed", patient_name: "Mary Johnson", patient_phone_number: "57651209", message: "Emergency transfusion", quantity: 2, created_at: Time.now, completed_at: Time.now - 3.days)
+blood_request5 = BloodRequest.create(blood_request_id: 5, user_id: 5, facility_id: 2, blood_type: "A-", needed_by: "2025-12-18", status: "pending", patient_name: "Michael Lee", patient_phone_number: "59482211", message: "Planned surgery", quantity: 4, created_at: Time.now, completed_at: nil)
+blood_request6 = BloodRequest.create(blood_request_id: 6, user_id: 6, facility_id: 1, blood_type: "O+", needed_by: "2025-12-22", status: "completed", patient_name: "Emma Wilson", patient_phone_number: "58091344", message: "Urgent care", quantity: 2, created_at: Time.now, completed_at: Time.now - 1.day)
+blood_request7 = BloodRequest.create(blood_request_id: 7, user_id: 7, facility_id: 3, blood_type: "B-", needed_by: "2025-12-24", status: "pending", patient_name: "Daniel Kim", patient_phone_number: "57221198", message: "Trauma case", quantity: 1, created_at: Time.now, completed_at: nil)
+blood_request8 = BloodRequest.create(blood_request_id: 8, user_id: 8, facility_id: 2, blood_type: "AB+", needed_by: "2025-12-26", status: "completed", patient_name: "Sophia Martinez", patient_phone_number: "59734122", message: "Blood transfusion required", quantity: 3, created_at: Time.now, completed_at: Time.now - 2.days)
+blood_request9 = BloodRequest.create(blood_request_id: 9, user_id: 9, facility_id: 1, blood_type: "A+", needed_by: "2025-12-28", status: "pending", patient_name: "James Anderson", patient_phone_number: "59120017", message: "Emergency surgery", quantity: 2, created_at: Time.now, completed_at: nil)
+blood_request10 = BloodRequest.create(blood_request_id: 10, user_id: 10, facility_id: 3, blood_type: "O-", needed_by: "2025-12-30", status: "completed", patient_name: "Olivia Taylor", patient_phone_number: "57399821", message: "Blood needed urgently", quantity: 1, created_at: Time.now, completed_at: Time.now - 1.day)
+blood_request11 = BloodRequest.create(blood_request_id: 11, user_id: 11, facility_id: 2, blood_type: "B+", needed_by: "2026-01-02", status: "pending", patient_name: "Ethan White", patient_phone_number: "59672210", message: "Scheduled procedure", quantity: 2, created_at: Time.now, completed_at: nil)
+blood_request12 = BloodRequest.create(blood_request_id: 12, user_id: 12, facility_id: 1, blood_type: "AB-", needed_by: "2026-01-05", status: "completed", patient_name: "Chloe Hall", patient_phone_number: "58412390", message: "Accident transfusion", quantity: 1, created_at: Time.now, completed_at: Time.now - 4.days)
+blood_request13 = BloodRequest.create(blood_request_id: 13, user_id: 13, facility_id: 3, blood_type: "A-", needed_by: "2026-01-07", status: "pending", patient_name: "Liam Scott", patient_phone_number: "57982011", message: "Urgent need", quantity: 3, created_at: Time.now, completed_at: nil)
+blood_request14 = BloodRequest.create(blood_request_id: 14, user_id: 14, facility_id: 2, blood_type: "O+", needed_by: "2026-01-10", status: "completed", patient_name: "Ava Young", patient_phone_number: "59564401", message: "Blood transfusion", quantity: 2, created_at: Time.now, completed_at: Time.now - 1.day)
+blood_request15 = BloodRequest.create(blood_request_id: 15, user_id: 15, facility_id: 1, blood_type: "B-", needed_by: "2026-01-12", status: "pending", patient_name: "Noah King", patient_phone_number: "57812209", message: "Surgery planned", quantity: 1, created_at: Time.now, completed_at: nil)
+blood_request16 = BloodRequest.create(blood_request_id: 16, user_id: 16, facility_id: 3, blood_type: "AB+", needed_by: "2026-01-15", status: "completed", patient_name: "Mia Wright", patient_phone_number: "59382177", message: "Emergency transfusion", quantity: 2, created_at: Time.now, completed_at: Time.now - 3.days)
+blood_request17 = BloodRequest.create(blood_request_id: 17, user_id: 17, facility_id: 2, blood_type: "A+", needed_by: "2026-01-17", status: "pending", patient_name: "Lucas Green", patient_phone_number: "57720016", message: "Urgent surgery", quantity: 3, created_at: Time.now, completed_at: nil)
+blood_request18 = BloodRequest.create(blood_request_id: 18, user_id: 18, facility_id: 1, blood_type: "O-", needed_by: "2026-01-20", status: "completed", patient_name: "Sophia Adams", patient_phone_number: "59831190", message: "Blood needed", quantity: 1, created_at: Time.now, completed_at: Time.now - 2.days)
+blood_request19 = BloodRequest.create(blood_request_id: 19, user_id: 19, facility_id: 3, blood_type: "B+", needed_by: "2026-01-22", status: "pending", patient_name: "Mason Baker", patient_phone_number: "57123098", message: "Scheduled transfusion", quantity: 2, created_at: Time.now, completed_at: nil)
+blood_request20 = BloodRequest.create(blood_request_id: 20, user_id: 20, facility_id: 2, blood_type: "AB-", needed_by: "2026-01-25", status: "completed", patient_name: "Isabella Nelson", patient_phone_number: "57689012", message: "Urgent need", quantity: 3, created_at: Time.now, completed_at: Time.now - 1.day)
+blood_request21 = BloodRequest.create(blood_request_id: 21, user_id: 21, facility_id: 1, blood_type: "A-", needed_by: "2026-01-27", status: "pending", patient_name: "Evelyn Carter", patient_phone_number: "59071822", message: "Surgery planned", quantity: 1, created_at: Time.now, completed_at: nil)
+blood_request22 = BloodRequest.create(blood_request_id: 22, user_id: 22, facility_id: 3, blood_type: "O+", needed_by: "2026-01-30", status: "completed", patient_name: "Liam Mitchell", patient_phone_number: "58280117", message: "Blood transfusion", quantity: 2, created_at: Time.now, completed_at: Time.now - 2.days)
+blood_request23 = BloodRequest.create(blood_request_id: 23, user_id: 23, facility_id: 2, blood_type: "B-", needed_by: "2026-02-02", status: "pending", patient_name: "Aria Perez", patient_phone_number: "59320178", message: "Emergency transfusion", quantity: 1, created_at: Time.now, completed_at: nil)
+blood_request24 = BloodRequest.create(blood_request_id: 24, user_id: 24, facility_id: 1, blood_type: "AB+", needed_by: "2026-02-05", status: "completed", patient_name: "James Morris", patient_phone_number: "59911032", message: "Urgent surgery", quantity: 2, created_at: Time.now, completed_at: Time.now - 3.days)
+blood_request25 = BloodRequest.create(blood_request_id: 25, user_id: 25, facility_id: 3, blood_type: "A+", needed_by: "2026-02-07", status: "pending", patient_name: "Ella Rogers", patient_phone_number: "57192304", message: "Scheduled transfusion", quantity: 1, created_at: Time.now, completed_at: nil)
+blood_request26 = BloodRequest.create(blood_request_id: 26, user_id: 26, facility_id: 2, blood_type: "O-", needed_by: "2026-02-10", status: "completed", patient_name: "Benjamin Kelly", patient_phone_number: "58870019", message: "Emergency case", quantity: 3, created_at: Time.now, completed_at: Time.now - 1.day)
+blood_request27 = BloodRequest.create(blood_request_id: 27, user_id: 27, facility_id: 1, blood_type: "B+", needed_by: "2026-02-12", status: "pending", patient_name: "Grace Hughes", patient_phone_number: "59011098", message: "Urgent transfusion", quantity: 2, created_at: Time.now, completed_at: nil)
 
 
 puts "🌱 Seeding Donors..."
+donor1 = Donor.create(donor_id: 1, user_id: 1, donor_status: true, last_donation_date: "2025-06-12", eligibility_status: true)
+donor2 = Donor.create(donor_id: 2, user_id: 2, donor_status: true, last_donation_date: "2025-05-20", eligibility_status: true)
+donor3 = Donor.create(donor_id: 3, user_id: 3, donor_status: false, last_donation_date: "2025-01-15", eligibility_status: false)
+donor4 = Donor.create(donor_id: 4, user_id: 4, donor_status: true, last_donation_date: "2025-03-08", eligibility_status: true)
+donor5 = Donor.create(donor_id: 5, user_id: 5, donor_status: false, last_donation_date: "2024-12-22", eligibility_status: false)
+donor6 = Donor.create(donor_id: 6, user_id: 6, donor_status: true, last_donation_date: "2025-02-11", eligibility_status: true)
+donor7 = Donor.create(donor_id: 7, user_id: 7, donor_status: true, last_donation_date: "2025-04-17", eligibility_status: true)
+donor8 = Donor.create(donor_id: 8, user_id: 8, donor_status: false, last_donation_date: "2025-01-30", eligibility_status: false)
+donor9 = Donor.create(donor_id: 9, user_id: 9, donor_status: true, last_donation_date: "2025-06-05", eligibility_status: true)
+donor10 = Donor.create(donor_id: 10, user_id: 10, donor_status: true, last_donation_date: "2025-03-25", eligibility_status: true)
+donor11 = Donor.create(donor_id: 11, user_id: 11, donor_status: false, last_donation_date: "2025-02-14", eligibility_status: false)
+donor12 = Donor.create(donor_id: 12, user_id: 12, donor_status: true, last_donation_date: "2025-05-03", eligibility_status: true)
+donor13 = Donor.create(donor_id: 13, user_id: 13, donor_status: true, last_donation_date: "2025-01-22", eligibility_status: true)
+donor14 = Donor.create(donor_id: 14, user_id: 14, donor_status: false, last_donation_date: "2024-11-30", eligibility_status: false)
+donor15 = Donor.create(donor_id: 15, user_id: 15, donor_status: true, last_donation_date: "2025-04-01", eligibility_status: true)
+donor16 = Donor.create(donor_id: 16, user_id: 16, donor_status: true, last_donation_date: "2025-06-01", eligibility_status: true)
+donor17 = Donor.create(donor_id: 17, user_id: 17, donor_status: false, last_donation_date: "2025-02-28", eligibility_status: false)
+donor18 = Donor.create(donor_id: 18, user_id: 18, donor_status: true, last_donation_date: "2025-05-15", eligibility_status: true)
+donor19 = Donor.create(donor_id: 19, user_id: 19, donor_status: true, last_donation_date: "2025-03-05", eligibility_status: true)
+donor20 = Donor.create(donor_id: 20, user_id: 20, donor_status: false, last_donation_date: "2025-01-12", eligibility_status: false)
+donor21 = Donor.create(donor_id: 21, user_id: 21, donor_status: true, last_donation_date: "2025-04-20", eligibility_status: true)
+donor22 = Donor.create(donor_id: 22, user_id: 22, donor_status: true, last_donation_date: "2025-05-27", eligibility_status: true)
+donor23 = Donor.create(donor_id: 23, user_id: 23, donor_status: false, last_donation_date: "2025-03-18", eligibility_status: false)
+donor24 = Donor.create(donor_id: 24, user_id: 24, donor_status: true, last_donation_date: "2025-06-03", eligibility_status: true)
+donor25 = Donor.create(donor_id: 25, user_id: 25, donor_status: true, last_donation_date: "2025-02-07", eligibility_status: true)
+donor26 = Donor.create(donor_id: 26, user_id: 26, donor_status: false, last_donation_date: "2025-01-28", eligibility_status: false)
+donor27 = Donor.create(donor_id: 27, user_id: 27, donor_status: true, last_donation_date: "2025-05-10", eligibility_status: true)
 
-donors = [
-  { donor_id: 1,  user_id: 1,  donor_status: true,  last_donation_date: "2025-01-12", eligibility_status: true },
-  { donor_id: 2,  user_id: 2,  donor_status: true,  last_donation_date: "2024-12-04", eligibility_status: true },
-  { donor_id: 3,  user_id: 3,  donor_status: false, last_donation_date: "2023-11-10", eligibility_status: false },
-  { donor_id: 4,  user_id: 4,  donor_status: true,  last_donation_date: "2025-02-02", eligibility_status: true },
-  { donor_id: 5,  user_id: 5,  donor_status: true,  last_donation_date: "2024-09-18", eligibility_status: true },
-  { donor_id: 6,  user_id: 6,  donor_status: false, last_donation_date: "2023-08-22", eligibility_status: false },
-  { donor_id: 7,  user_id: 7,  donor_status: true,  last_donation_date: "2025-01-20", eligibility_status: true },
-  { donor_id: 8,  user_id: 8,  donor_status: true,  last_donation_date: "2024-12-28", eligibility_status: true },
-  { donor_id: 9,  user_id: 9,  donor_status: false, last_donation_date: "2024-02-15", eligibility_status: false },
-  { donor_id: 10, user_id: 10, donor_status: true,  last_donation_date: "2025-02-01", eligibility_status: true },
-  { donor_id: 11, user_id: 11, donor_status: true,  last_donation_date: "2024-10-14", eligibility_status: true },
-  { donor_id: 12, user_id: 12, donor_status: true,  last_donation_date: "2025-01-05", eligibility_status: true },
-  { donor_id: 13, user_id: 13, donor_status: false, last_donation_date: "2024-03-10", eligibility_status: false },
-  { donor_id: 14, user_id: 14, donor_status: true,  last_donation_date: "2025-01-10", eligibility_status: true },
-  { donor_id: 15, user_id: 15, donor_status: true,  last_donation_date: "2024-12-01", eligibility_status: true },
-  { donor_id: 16, user_id: 16, donor_status: true,  last_donation_date: "2024-09-25", eligibility_status: true },
-  { donor_id: 17, user_id: 17, donor_status: false, last_donation_date: "2023-06-18", eligibility_status: false },
-  { donor_id: 18, user_id: 18, donor_status: true,  last_donation_date: "2025-01-15", eligibility_status: true },
-  { donor_id: 19, user_id: 19, donor_status: true,  last_donation_date: "2024-11-22", eligibility_status: true },
-  { donor_id: 20, user_id: 20, donor_status: true,  last_donation_date: "2024-08-12", eligibility_status: true },
-  { donor_id: 21, user_id: 21, donor_status: true,  last_donation_date: "2025-01-30", eligibility_status: true },
-  { donor_id: 22, user_id: 22, donor_status: false, last_donation_date: "2024-05-16", eligibility_status: false },
-  { donor_id: 23, user_id: 23, donor_status: true,  last_donation_date: "2024-12-18", eligibility_status: true },
-  { donor_id: 24, user_id: 24, donor_status: true,  last_donation_date: "2024-11-08", eligibility_status: true },
-  { donor_id: 25, user_id: 25, donor_status: true,  last_donation_date: "2025-02-03", eligibility_status: true },
-  { donor_id: 26, user_id: 26, donor_status: false, last_donation_date: "2023-12-11", eligibility_status: false },
-  { donor_id: 27, user_id: 27, donor_status: true,  last_donation_date: "2024-10-05", eligibility_status: true }
-]
 
 puts "🌱 Seeding donations ..."
-donations = [
-  { donation_id: 1,  donor_id: 1,  blood_request_id: 3,  facility_id: 3, status: "accepted",   created_at: Time.now },
-  { donation_id: 2,  donor_id: 2,  blood_request_id: 1,  facility_id: 1, status: "completed",  created_at: Time.now },
-  { donation_id: 3,  donor_id: 3,  blood_request_id: 4,  facility_id: 4, status: "rejected",   created_at: Time.now },
-  { donation_id: 4,  donor_id: 4,  blood_request_id: 7,  facility_id: 2, status: "accepted",   created_at: Time.now },
-  { donation_id: 5,  donor_id: 5,  blood_request_id: 2,  facility_id: 3, status: "completed",  created_at: Time.now },
-  { donation_id: 6,  donor_id: 6,  blood_request_id: 6,  facility_id: 1, status: "accepted",   created_at: Time.now },
-  { donation_id: 7,  donor_id: 7,  blood_request_id: 8,  facility_id: 4, status: "completed",  created_at: Time.now },
-  { donation_id: 8,  donor_id: 8,  blood_request_id: 5,  facility_id: 3, status: "accepted",   created_at: Time.now },
-  { donation_id: 9,  donor_id: 9,  blood_request_id: 9,  facility_id: 2, status: "rejected",   created_at: Time.now },
-  { donation_id: 10, donor_id: 10, blood_request_id: 10, facility_id: 1, status: "completed",  created_at: Time.now },
-  { donation_id: 11, donor_id: 11, blood_request_id: 11, facility_id: 3, status: "accepted",   created_at: Time.now },
-  { donation_id: 12, donor_id: 12, blood_request_id: 12, facility_id: 2, status: "completed",  created_at: Time.now },
-  { donation_id: 13, donor_id: 13, blood_request_id: 13, facility_id: 1, status: "accepted",   created_at: Time.now },
-  { donation_id: 14, donor_id: 14, blood_request_id: 14, facility_id: 4, status: "accepted",   created_at: Time.now },
-  { donation_id: 15, donor_id: 15, blood_request_id: 15, facility_id: 3, status: "completed",  created_at: Time.now },
-  { donation_id: 16, donor_id: 16, blood_request_id: 16, facility_id: 2, status: "accepted",   created_at: Time.now },
-  { donation_id: 17, donor_id: 17, blood_request_id: 17, facility_id: 1, status: "rejected",   created_at: Time.now },
-  { donation_id: 18, donor_id: 18, blood_request_id: 18, facility_id: 4, status: "completed",  created_at: Time.now },
-  { donation_id: 19, donor_id: 19, blood_request_id: 19, facility_id: 3, status: "accepted",   created_at: Time.now },
-  { donation_id: 20, donor_id: 20, blood_request_id: 20, facility_id: 2, status: "completed",  created_at: Time.now },
-  { donation_id: 21, donor_id: 21, blood_request_id: 21, facility_id: 1, status: "accepted",   created_at: Time.now },
-  { donation_id: 22, donor_id: 22, blood_request_id: 22, facility_id: 4, status: "rejected",   created_at: Time.now },
-  { donation_id: 23, donor_id: 23, blood_request_id: 23, facility_id: 3, status: "completed",  created_at: Time.now },
-  { donation_id: 24, donor_id: 24, blood_request_id: 24, facility_id: 2, status: "accepted",   created_at: Time.now },
-  { donation_id: 25, donor_id: 25, blood_request_id: 25, facility_id: 1, status: "completed",  created_at: Time.now },
-  { donation_id: 26, donor_id: 26, blood_request_id: 26, facility_id: 4, status: "accepted",   created_at: Time.now },
-  { donation_id: 27, donor_id: 27, blood_request_id: 27, facility_id: 3, status: "completed",  created_at: Time.now }
-]
+donation1 = Donation.create(donation_id: 1, donor_id: 1, blood_request_id: 1, facility_id: 1, status: "accepted", created_at: "2025-06-01")
+donation2 = Donation.create(donation_id: 2, donor_id: 2, blood_request_id: 2, facility_id: 2, status: "rejected", created_at: "2025-05-20")
+donation3 = Donation.create(donation_id: 3, donor_id: 3, blood_request_id: 3, facility_id: 3, status: "completed", created_at: "2025-04-15")
+donation4 = Donation.create(donation_id: 4, donor_id: 4, blood_request_id: 4, facility_id: 1, status: "accepted", created_at: "2025-03-28")
+donation5 = Donation.create(donation_id: 5, donor_id: 5, blood_request_id: 5, facility_id: 2, status: "rejected", created_at: "2025-02-14")
+donation6 = Donation.create(donation_id: 6, donor_id: 6, blood_request_id: 6, facility_id: 3, status: "completed", created_at: "2025-01-30")
+donation7 = Donation.create(donation_id: 7, donor_id: 7, blood_request_id: 7, facility_id: 1, status: "accepted", created_at: "2025-06-05")
+donation8 = Donation.create(donation_id: 8, donor_id: 8, blood_request_id: 8, facility_id: 2, status: "rejected", created_at: "2025-05-12")
+donation9 = Donation.create(donation_id: 9, donor_id: 9, blood_request_id: 9, facility_id: 3, status: "completed", created_at: "2025-04-20")
+donation10 = Donation.create(donation_id: 10, donor_id: 10, blood_request_id: 10, facility_id: 1, status: "accepted", created_at: "2025-03-15")
+donation11 = Donation.create(donation_id: 11, donor_id: 11, blood_request_id: 11, facility_id: 2, status: "rejected", created_at: "2025-02-28")
+donation12 = Donation.create(donation_id: 12, donor_id: 12, blood_request_id: 12, facility_id: 3, status: "completed", created_at: "2025-01-10")
+donation13 = Donation.create(donation_id: 13, donor_id: 13, blood_request_id: 13, facility_id: 1, status: "accepted", created_at: "2025-06-10")
+donation14 = Donation.create(donation_id: 14, donor_id: 14, blood_request_id: 14, facility_id: 2, status: "rejected", created_at: "2025-05-05")
+donation15 = Donation.create(donation_id: 15, donor_id: 15, blood_request_id: 15, facility_id: 3, status: "completed", created_at: "2025-04-08")
+donation16 = Donation.create(donation_id: 16, donor_id: 16, blood_request_id: 16, facility_id: 1, status: "accepted", created_at: "2025-03-01")
+donation17 = Donation.create(donation_id: 17, donor_id: 17, blood_request_id: 17, facility_id: 2, status: "rejected", created_at: "2025-02-20")
+donation18 = Donation.create(donation_id: 18, donor_id: 18, blood_request_id: 18, facility_id: 3, status: "completed", created_at: "2025-01-15")
+donation19 = Donation.create(donation_id: 19, donor_id: 19, blood_request_id: 19, facility_id: 1, status: "accepted", created_at: "2025-06-12")
+donation20 = Donation.create(donation_id: 20, donor_id: 20, blood_request_id: 20, facility_id: 2, status: "rejected", created_at: "2025-05-22")
+donation21 = Donation.create(donation_id: 21, donor_id: 21, blood_request_id: 21, facility_id: 3, status: "completed", created_at: "2025-04-18")
+donation22 = Donation.create(donation_id: 22, donor_id: 22, blood_request_id: 22, facility_id: 1, status: "accepted", created_at: "2025-03-12")
+donation23 = Donation.create(donation_id: 23, donor_id: 23, blood_request_id: 23, facility_id: 2, status: "rejected", created_at: "2025-02-25")
+donation24 = Donation.create(donation_id: 24, donor_id: 24, blood_request_id: 24, facility_id: 3, status: "completed", created_at: "2025-01-08")
+donation25 = Donation.create(donation_id: 25, donor_id: 25, blood_request_id: 25, facility_id: 1, status: "accepted", created_at: "2025-06-08")
+donation26 = Donation.create(donation_id: 26, donor_id: 26, blood_request_id: 26, facility_id: 2, status: "rejected", created_at: "2025-05-18")
+donation27 = Donation.create(donation_id: 27, donor_id: 27, blood_request_id: 27, facility_id: 3, status: "completed", created_at: "2025-04-02")
+
+
 
 puts "🌱 Seeding notifications ..."
-notifications = [
-  { notifications_id: 1,  message: "Your blood request has been received.", created_at: Time.now, is_read: false, user_id: 1,  blood_request_id: 1,  sent_at: Time.now },
-  { notifications_id: 2,  message: "A donor has accepted your request.",    created_at: Time.now, is_read: false, user_id: 2,  blood_request_id: 2,  sent_at: Time.now },
-  { notifications_id: 3,  message: "Your request is being processed.",       created_at: Time.now, is_read: false, user_id: 3,  blood_request_id: 3,  sent_at: Time.now },
-  { notifications_id: 4,  message: "A donor is on the way to the facility.", created_at: Time.now, is_read: false, user_id: 4,  blood_request_id: 4,  sent_at: Time.now },
-  { notifications_id: 5,  message: "Your blood request has been completed.", created_at: Time.now, is_read: false, user_id: 5,  blood_request_id: 5,  sent_at: Time.now },
-  { notifications_id: 6,  message: "We are searching for a compatible donor.", created_at: Time.now, is_read: false, user_id: 6,  blood_request_id: 6,  sent_at: Time.now },
-  { notifications_id: 7,  message: "A donor is reviewing your request.",     created_at: Time.now, is_read: false, user_id: 7,  blood_request_id: 7,  sent_at: Time.now },
-  { notifications_id: 8,  message: "Your request has matched with a donor.", created_at: Time.now, is_read: false, user_id: 8,  blood_request_id: 8,  sent_at: Time.now },
-  { notifications_id: 9,  message: "Donor declined your request.",           created_at: Time.now, is_read: false, user_id: 9,  blood_request_id: 9,  sent_at: Time.now },
-  { notifications_id: 10, message: "Your blood request is completed.",       created_at: Time.now, is_read: false, user_id: 10, blood_request_id: 10, sent_at: Time.now },
-  { notifications_id: 11, message: "Your request is pending donor response.",created_at: Time.now, is_read: false, user_id: 11, blood_request_id: 11, sent_at: Time.now },
-  { notifications_id: 12, message: "Donor confirmed availability.",          created_at: Time.now, is_read: false, user_id: 12, blood_request_id: 12, sent_at: Time.now },
-  { notifications_id: 13, message: "Your request has been updated.",         created_at: Time.now, is_read: false, user_id: 13, blood_request_id: 13, sent_at: Time.now },
-  { notifications_id: 14, message: "A new donor is reviewing your request.", created_at: Time.now, is_read: false, user_id: 14, blood_request_id: 14, sent_at: Time.now },
-  { notifications_id: 15, message: "Your blood request has been fulfilled.", created_at: Time.now, is_read: false, user_id: 15, blood_request_id: 15, sent_at: Time.now },
-  { notifications_id: 16, message: "A donor has accepted your request.",     created_at: Time.now, is_read: false, user_id: 16, blood_request_id: 16, sent_at: Time.now },
-  { notifications_id: 17, message: "Your blood request requires urgent review.", created_at: Time.now, is_read: false, user_id: 17, blood_request_id: 17, sent_at: Time.now },
-  { notifications_id: 18, message: "A donor is en route to the facility.",   created_at: Time.now, is_read: false, user_id: 18, blood_request_id: 18, sent_at: Time.now },
-  { notifications_id: 19, message: "Your request status has been updated.",  created_at: Time.now, is_read: false, user_id: 19, blood_request_id: 19, sent_at: Time.now },
-  { notifications_id: 20, message: "Your request has been successfully completed.", created_at: Time.now, is_read: false, user_id: 20, blood_request_id: 20, sent_at: Time.now },
-  { notifications_id: 21, message: "A donor is on standby.",                 created_at: Time.now, is_read: false, user_id: 21, blood_request_id: 21, sent_at: Time.now },
-  { notifications_id: 22, message: "Your donor has cancelled.",              created_at: Time.now, is_read: false, user_id: 22, blood_request_id: 22, sent_at: Time.now },
-  { notifications_id: 23, message: "Blood request completed.",               created_at: Time.now, is_read: false, user_id: 23, blood_request_id: 23, sent_at: Time.now },
-  { notifications_id: 24, message: "Donor accepted your request.",           created_at: Time.now, is_read: false, user_id: 24, blood_request_id: 24, sent_at: Time.now },
-  { notifications_id: 25, message: "Your blood request is finalized.",       created_at: Time.now, is_read: false, user_id: 25, blood_request_id: 25, sent_at: Time.now },
-  { notifications_id: 26, message: "We located a matching donor.",           created_at: Time.now, is_read: false, user_id: 26, blood_request_id: 26, sent_at: Time.now },
-  { notifications_id: 27, message: "Your donation request has been fulfilled.", created_at: Time.now, is_read: false, user_id: 27, blood_request_id: 27, sent_at: Time.now }
-]
+
+notification1 = Notification.create(notifications_id: 1, message: "Your blood request has been approved.", created_at: "2025-06-01", is_read: true, user_id: 1, blood_request_id: 1, sent_at: "2025-06-01 10:05")
+notification2 = Notification.create(notifications_id: 2, message: "New donor available for your request.", created_at: "2025-05-28", is_read: false, user_id: 2, blood_request_id: 2, sent_at: "2025-05-28 09:40")
+notification3 = Notification.create(notifications_id: 3, message: "Your donation has been accepted.", created_at: "2025-05-25", is_read: true, user_id: 3, blood_request_id: 3, sent_at: "2025-05-25 11:20")
+notification4 = Notification.create(notifications_id: 4, message: "Blood request completed successfully.", created_at: "2025-05-23", is_read: false, user_id: 4, blood_request_id: 4, sent_at: "2025-05-23 14:15")
+notification5 = Notification.create(notifications_id: 5, message: "Your blood request was rejected.", created_at: "2025-05-21", is_read: true, user_id: 5, blood_request_id: 5, sent_at: "2025-05-21 16:40")
+notification6 = Notification.create(notifications_id: 6, message: "New donation available for your request.", created_at: "2025-05-19", is_read: false, user_id: 6, blood_request_id: 6, sent_at: "2025-05-19 12:35")
+notification7 = Notification.create(notifications_id: 7, message: "Your donor has confirmed the donation.", created_at: "2025-05-17", is_read: true, user_id: 7, blood_request_id: 7, sent_at: "2025-05-17 10:50")
+notification8 = Notification.create(notifications_id: 8, message: "Blood request has been assigned to a facility.", created_at: "2025-05-15", is_read: false, user_id: 8, blood_request_id: 8, sent_at: "2025-05-15 09:55")
+notification9 = Notification.create(notifications_id: 9, message: "Your donation is scheduled for tomorrow.", created_at: "2025-05-13", is_read: true, user_id: 9, blood_request_id: 9, sent_at: "2025-05-13 15:10")
+notification10 = Notification.create(notifications_id: 10, message: "Blood request pending approval.", created_at: "2025-05-11", is_read: false, user_id: 10, blood_request_id: 10, sent_at: "2025-05-11 08:50")
+notification11 = Notification.create(notifications_id: 11, message: "Your donation has been completed.", created_at: "2025-05-09", is_read: true, user_id: 11, blood_request_id: 11, sent_at: "2025-05-09 14:25")
+notification12 = Notification.create(notifications_id: 12, message: "New donor assigned to your request.", created_at: "2025-05-07", is_read: false, user_id: 12, blood_request_id: 12, sent_at: "2025-05-07 10:55")
+notification13 = Notification.create(notifications_id: 13, message: "Your blood request is being processed.", created_at: "2025-05-05", is_read: true, user_id: 13, blood_request_id: 13, sent_at: "2025-05-05 11:30")
+notification14 = Notification.create(notifications_id: 14, message: "Donation successfully completed.", created_at: "2025-05-03", is_read: false, user_id: 14, blood_request_id: 14, sent_at: "2025-05-03 16:50")
+notification15 = Notification.create(notifications_id: 15, message: "Your blood request has been cancelled.", created_at: "2025-05-01", is_read: true, user_id: 15, blood_request_id: 15, sent_at: "2025-05-01 13:20")
+notification16 = Notification.create(notifications_id: 16, message: "New donor accepted your request.", created_at: "2025-04-29", is_read: false, user_id: 16, blood_request_id: 16, sent_at: "2025-04-29 09:50")
+notification17 = Notification.create(notifications_id: 17, message: "Blood request awaiting confirmation.", created_at: "2025-04-27", is_read: true, user_id: 17, blood_request_id: 17, sent_at: "2025-04-27 12:35")
+notification18 = Notification.create(notifications_id: 18, message: "Donation scheduled successfully.", created_at: "2025-04-25", is_read: false, user_id: 18, blood_request_id: 18, sent_at: "2025-04-25 14:55")
+notification19 = Notification.create(notifications_id: 19, message: "Your blood request is completed.", created_at: "2025-04-23", is_read: true, user_id: 19, blood_request_id: 19, sent_at: "2025-04-23 10:25")
+notification20 = Notification.create(notifications_id: 20, message: "New donor has been assigned.", created_at: "2025-04-21", is_read: false, user_id: 20, blood_request_id: 20, sent_at: "2025-04-21 15:15")
+notification21 = Notification.create(notifications_id: 21, message: "Donation confirmation received.", created_at: "2025-04-19", is_read: true, user_id: 21, blood_request_id: 21, sent_at: "2025-04-19 09:55")
+notification22 = Notification.create(notifications_id: 22, message: "Blood request approved successfully.", created_at: "2025-04-17", is_read: false, user_id: 22, blood_request_id: 22, sent_at: "2025-04-17 11:50")
+notification23 = Notification.create(notifications_id: 23, message: "Donation rejected by the facility.", created_at: "2025-04-15", is_read: true, user_id: 23, blood_request_id: 23, sent_at: "2025-04-15 13:35")
+notification24 = Notification.create(notifications_id: 24, message: "Your donor is on the way.", created_at: "2025-04-13", is_read: false, user_id: 24, blood_request_id: 24, sent_at: "2025-04-13 08:25")
+notification25 = Notification.create(notifications_id: 25, message: "Blood request pending donor confirmation.", created_at: "2025-04-11", is_read: true, user_id: 25, blood_request_id: 25, sent_at: "2025-04-11 10:15")
+notification26 = Notification.create(notifications_id: 26, message: "Donation completed successfully.", created_at: "2025-04-09", is_read: false, user_id: 26, blood_request_id: 26, sent_at: "2025-04-09 12:45")
+notification27 = Notification.create(notifications_id: 27, message: "Blood request has been updated.", created_at: "2025-04-07", is_read: true, user_id: 27, blood_request_id: 27, sent_at: "2025-04-07 14:35")
