@@ -1,6 +1,4 @@
-/* Hero Section */
 .hero-section {
-  background-color: #FFF1F2;
   background-image: image-url('Hero-section.png');
   background-size: cover;
   background-position: center;
@@ -27,7 +25,6 @@
   z-index: 2;
 }
 
-/* Buttons: transition */
 .hero-button {
   transition: all 0.3s ease;
 }
@@ -39,6 +36,7 @@
   box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
 }
 
-body {
+.how-it-works-section {
   background-color: #FFF1F2;
 }
+
