@@ -15,13 +15,14 @@ class Donor < ApplicationRecord
   end
 
   def previous_donations?
-    donations.any?
+    last_donation_date.present?
+    # @donations.all
   end
 
   def next_eligible_date
     return Date.today unless last_donation
 
-    last_donation.to_date + 56.days
+    last_donation.to_date + 90.days
   end
 
   def eligible_to_donate
