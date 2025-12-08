@@ -1,6 +1,7 @@
 require 'faker'
 require 'open-uri'
 require 'openssl'
+require 'securerandom'
 
 # Only for development
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
@@ -84,11 +85,13 @@ puts "Creating facilities..."
 puts "🌱 Seeding users..."
 blood_types = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"]
 mauritius_cities = ["Port Louis", "Quatre Bornes", "Curepipe", "Beau Bassin", "Rose Belle", "Grand Baie", "Moka", "Flacq", "Tamarin", "Vacoas", "Phoenix", "Goodlands", "Mahebourg", "Calodyne", "Montagne Blanche", "Souillac", "Flic en Flac"]
+mauritian_first_names = ["Anjali", "Jemilla", "Tom", "Richard", "Devon", "Priya", "Jean", "Marie", "Kevin", "Paul", "Aisha", "Sunil", "Tania", "Vikesh", "Yaasir", "Ikhlass", "Brandon", "Anne-Marie", "Deven", "Anil", "Dave", "Kristel", "Sofia", "Naziah", "Javed", "Aurelie"]
+mauritian_last_names  = ["Gopaul", "Henri", "Bunwaree", "Ramsamy", "Richard", "Dulloo", "Kellock", "Paul", "Nundlall", "Mungur", "Gungadin", "Mungroo", "Ghanty", "Oomar", "Lee", "Cheekoree", "Lo-Hun", "Colin", "Ranglall", "Sobha", "Ramsaib", "Cheung", "Chen", "Annoar", "Brasse"]
 
 users = 35.times.map do
   User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    first_name: mauritian_first_names.sample,
+    last_name: mauritian_last_names.sample,
     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 70),
     email: Faker::Internet.unique.email,
     password: "password123",
@@ -96,7 +99,7 @@ users = 35.times.map do
     address: mauritius_cities.sample,
     blood_type: blood_types.sample,
     is_donor: [true, false].sample,
-    avatar_url: "https://i.pravatar.cc/150?img=#{rand(1..70)}"
+    avatar_url: "https://avatar.iran.liara.run/public?username=#{SecureRandom.hex(8)}"
   )
 end
 
