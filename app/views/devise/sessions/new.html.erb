@@ -1,44 +1,33 @@
-<div class="auth-wrapper">
+<div class="signup-page">
+  <div class="signup-container">
+    <div class="signup-header text-center">
+      <%= image_tag "Veinconnect.png", class: "signup-logo", alt: "Logo" %>
+      <h2>Log in</h2>
+      <p class="signup-subtitle">Access your account and help save lives.</p>
+    </div>
 
-  <h2 class="auth-title">Log In</h2>
+    <div class="signup-form-container">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" } %>
+          <%= f.input :password, required: true, input_html: { autocomplete: "current-password" } %>
+          <% if devise_mapping.rememberable? %>
+            <%= f.input :remember_me, as: :boolean %>
+          <% end %>
+        </div>
 
-  <div class="auth-card shadow-sm">
+        <div class="form-actions text-center mt-2">
+          <%= f.button :submit, "Log in", class: "signup-btn" %>
+        </div>
 
-    <%= simple_form_for(resource,
-        as: resource_name,
-        url: session_path(resource_name)) do |f| %>
-
-      <div class="mb-3">
-        <%= f.input :email,
-          label_html: { class: "form-label-custom" },
-          input_html: { class: "form-control form-input-custom", autocomplete: "email", autofocus: true } %>
-      </div>
-
-      <div class="mb-3">
-        <%= f.input :password,
-          label_html: { class: "form-label-custom" },
-          input_html: { class: "form-control form-input-custom", autocomplete: "current-password" } %>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="mb-3 form-check">
-          <%= f.input :remember_me,
-            as: :boolean,
-            label_html: { class: "form-check-label text-danger fw-semibold" },
-            input_html: { class: "form-check-input" } %>
+        <div class="text-center mt-2">
+          <%= link_to "Forgot your password?", new_user_password_path, class: "login-link" %>
         </div>
       <% end %>
 
-      <div class="d-grid mt-4">
-        <%= f.button :submit, "Log in", class: "btn btn-custom" %>
+      <div class="signup-links text-center mt-3">
+        <%= link_to "Don't have an account? Sign up", new_user_registration_path, class: "login-link" %>
       </div>
-
-    <% end %>
-
+    </div>
   </div>
-
-  <div class="auth-links">
-    <%= render "devise/shared/links" %>
-  </div>
-
 </div>
