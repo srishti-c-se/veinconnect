@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
 
-// Connects to data-controller="map"
 export default class extends Controller {
   static values = {
     apiKey: String,
@@ -9,6 +8,14 @@ export default class extends Controller {
   }
 
   connect() {
+    console.log('=== MAP CONTROLLER STARTING ===')
+    console.log('Number of markers:', this.markersValue.length)
+
+    // Log ALL markers data
+    this.markersValue.forEach((marker, index) => {
+      console.log(`Marker ${index}:`, marker)
+    })
+
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -18,236 +25,217 @@ export default class extends Controller {
       zoom: 9
     })
 
-    // Store Markers for filtering
     this.allMarkers = []
+    this.searchTimer = null
 
-    // Add SINGLE search box (replaces Mapbox Geocoder)
-    this.#addSearchBox()
+    this.createSearchBox()
 
-    // Wait for map to load
     this.map.on('load', () => {
-      this.#addMarkersToMap()
+      this.addAllMarkers()
       if (this.markersValue.length > 0) {
-        this.#fitMapToMarkers()
+        this.fitToMarkers()
       }
     })
   }
 
-  #addSearchBox() {
-    // Create search container
-    const searchContainer = document.createElement('div')
-    searchContainer.className = 'search-container'
-    searchContainer.innerHTML = `
-      <div class="search-box">
-        <input type="text"
-               placeholder="Search locations..."
-               class="search-input"
-               data-action="input->map#handleSearch keydown.enter->map#handleEnter">
-        <button class="search-clear" data-action="click->map#clearSearch">
-          ×
-        </button>
-        <div class="search-results"></div>
+  createSearchBox() {
+    const searchHTML = `
+      <div class="search-box-container">
+        <div class="search-box">
+          <input type="text"
+                 placeholder="Search facilities by name..."
+                 class="search-input"
+                 data-action="input->map#handleTyping">
+          <div class="search-results"></div>
+        </div>
       </div>
     `
 
-    // Add to map
-    this.map.getContainer().appendChild(searchContainer)
+    const searchContainer = document.createElement('div')
+    searchContainer.innerHTML = searchHTML
+    this.map.getContainer().appendChild(searchContainer.firstElementChild)
 
-    // Store references
-    this.searchInput = searchContainer.querySelector('.search-input')
-    this.searchResults = searchContainer.querySelector('.search-results')
-    this.clearButton = searchContainer.querySelector('.search-clear')
+    this.searchInput = document.querySelector('.search-input')
+    this.searchResults = document.querySelector('.search-results')
   }
 
-  // Handle search input
-  handleSearch() {
+  handleTyping() {
     const query = this.searchInput.value.trim()
+    console.log('🔍 User typed:', query)
+
+    if (this.searchTimer) {
+      clearTimeout(this.searchTimer)
+    }
 
     if (query.length === 0) {
-      this.clearSearch()
+      this.hideResults()
+      this.showAllMarkers()
       return
     }
 
-    // FIRST: Search your facilities
-    const searchTerm = query.toLowerCase()
-    const facilityResults = this.markersValue.filter(marker => {
-      return (
-        marker.name.toLowerCase().includes(searchTerm) ||
-        (marker.address && marker.address.toLowerCase().includes(searchTerm)) ||
-        (marker.facility_type && marker.facility_type.toLowerCase().includes(searchTerm))
-      )
-    })
-
-    // Display combined results
-    this.#displaySearchResults(facilityResults, query)
+    this.searchTimer = setTimeout(() => {
+      this.searchForFacilities(query)
+    }, 250)
   }
 
-  // Handle Enter key for location search
-  handleEnter(event) {
-    if (event.key === 'Enter') {
-      const query = this.searchInput.value.trim()
-      if (query.length > 0) {
-        // Try to geocode the location using Mapbox
-        this.#searchLocation(query)
-      }
-    }
-  }
+  searchForFacilities(query) {
+    const searchTerm = query.toLowerCase().trim()
+    console.log('🔎 Searching for:', searchTerm)
+    console.log('📊 Available markers:', this.markersValue)
 
-  // Search for location using Mapbox API
-  async #searchLocation(query) {
-    try {
-      const response = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?` +
-        `access_token=${this.apiKeyValue}&` +
-        `bbox=57.2,-20.6,57.9,-19.9&` + // Mauritius bounds
-        `limit=5`
-      )
+    const matches = []
 
-      const data = await response.json()
+    this.markersValue.forEach((marker, index) => {
+      console.log(`Checking marker ${index}:`, marker)
 
-      if (data.features && data.features.length > 0) {
-        // Zoom to the first result
-        const [lng, lat] = data.features[0].center
-        this.map.flyTo({
-          center: [lng, lat],
-          zoom: 12,
-          duration: 1000
+      // Check if marker has ANY text properties
+      const markerText = JSON.stringify(marker).toLowerCase()
+      if (markerText.includes(searchTerm)) {
+        console.log(`✅ Match found in marker ${index}`)
+        matches.push({
+          index: index,
+          // Try to get name from any property
+          name: this.extractNameFromMarker(marker),
+          lng: marker.lng,
+          lat: marker.lat,
+          address: marker.address || '',
+          rawMarker: marker
         })
-
-        // Clear search results
-        this.searchResults.classList.remove('show')
-      } else {
-        this.searchResults.innerHTML = '<div class="no-results">Location not found in Mauritius</div>'
-        this.searchResults.classList.add('show')
-      }
-    } catch (error) {
-      console.error('Geocoding error:', error)
-    }
-  }
-
-  // Clear search
-  clearSearch() {
-    this.searchInput.value = ''
-    this.searchResults.innerHTML = ''
-    this.searchResults.classList.remove('show')
-
-    // Show all markers
-    this.allMarkers.forEach(marker => marker.getElement().style.display = 'block')
-  }
-
-  #displaySearchResults(facilityResults, query) {
-    if (facilityResults.length === 0) {
-      // No facilities found, offer to search as location
-      this.searchResults.innerHTML = `
-        <div class="search-results-list">
-          <div class="search-result-item location-search"
-               data-action="click->map#searchAsLocation"
-               data-query="${query}">
-            <div class="result-name">Search for "${query}" as location</div>
-            <div class="result-details">Click to search on map</div>
-          </div>
-        </div>
-      `
-      this.searchResults.classList.add('show')
-
-      // Hide all markers when no facility results
-      this.allMarkers.forEach(marker => marker.getElement().style.display = 'none')
-      return
-    }
-
-    // Hide all markers first
-    this.allMarkers.forEach(marker => marker.getElement().style.display = 'none')
-
-    // Build results HTML
-    let html = '<div class="search-results-list">'
-
-    facilityResults.forEach((facility) => {
-      html += `
-        <div class="search-result-item facility-result"
-             data-action="click->map#selectFacility"
-             data-facility-lng="${facility.lng}"
-             data-facility-lat="${facility.lat}">
-          <div class="result-name">${facility.name}</div>
-          <div class="result-details">
-            ${facility.facility_type ? `<span class="result-type">${facility.facility_type}</span>` : ''}
-            <span class="result-address">${facility.address || ''}</span>
-          </div>
-        </div>
-      `
-
-      // Show this marker
-      const markerElement = this.allMarkers.find(m =>
-        Math.abs(m.getLngLat().lng - facility.lng) < 0.0001 &&
-        Math.abs(m.getLngLat().lat - facility.lat) < 0.0001
-      )
-      if (markerElement) {
-        markerElement.getElement().style.display = 'block'
       }
     })
 
-    // Add location search option at the bottom
-    html += `
-      <div class="search-result-item location-search"
-           data-action="click->map#searchAsLocation"
-           data-query="${query}">
-        <div class="result-name">Search for "${query}" as location</div>
-        <div class="result-details">Not finding what you need? Search on map</div>
-      </div>
-    `
+    console.log('🎯 Found matches:', matches)
+
+    if (matches.length === 0) {
+      this.showNoResults(query)
+    } else {
+      this.showMatches(matches, query)
+    }
+
+    this.filterMapMarkers(searchTerm)
+  }
+
+  extractNameFromMarker(marker) {
+    // Try different possible property names
+    if (marker.name) return marker.name
+    if (marker.title) return marker.title
+    if (marker.facility_name) return marker.facility_name
+    if (marker.info_window_html) {
+      // Try to extract name from HTML
+      const tempDiv = document.createElement('div')
+      tempDiv.innerHTML = marker.info_window_html
+      const h3 = tempDiv.querySelector('h3')
+      if (h3) return h3.textContent
+    }
+    return 'Unnamed Facility'
+  }
+
+  showMatches(matches, query) {
+    let html = '<div class="matches-list">'
+
+    matches.slice(0, 8).forEach((match, i) => {
+      html += `
+        <div class="match-item"
+             data-index="${match.index}"
+             data-action="click->map#selectMatch">
+          <div class="match-name">${match.name}</div>
+          ${match.address ? `<div class="match-address">${match.address}</div>` : ''}
+        </div>
+      `
+    })
 
     html += '</div>'
     this.searchResults.innerHTML = html
-    this.searchResults.classList.add('show')
+    this.searchResults.classList.add('visible')
   }
 
-  // Select a facility from search results
-  selectFacility(event) {
-    const lng = parseFloat(event.currentTarget.dataset.facilityLng)
-    const lat = parseFloat(event.currentTarget.dataset.facilityLat)
+  showNoResults(query) {
+    this.searchResults.innerHTML = `
+      <div class="no-matches">
+        No facilities found for "${query}"
+        <br><small>Check console for debug info</small>
+      </div>
+    `
+    this.searchResults.classList.add('visible')
+  }
 
-    const marker = this.allMarkers.find(m =>
-      Math.abs(m.getLngLat().lng - lng) < 0.0001 &&
-      Math.abs(m.getLngLat().lat - lat) < 0.0001
-    )
+  selectMatch(event) {
+    const index = parseInt(event.currentTarget.dataset.index)
+    console.log('Selected match index:', index, 'Marker:', this.markersValue[index])
 
-    if (marker) {
+    if (this.markersValue[index]) {
+      const marker = this.markersValue[index]
+
+      // Update search input with the extracted name
+      this.searchInput.value = this.extractNameFromMarker(marker)
+
+      // Zoom to location
       this.map.flyTo({
-        center: [lng, lat],
+        center: [marker.lng, marker.lat],
         zoom: 14,
         duration: 1000
       })
 
-      setTimeout(() => {
-        marker.togglePopup()
-      }, 500)
+      // Open popup
+      if (this.allMarkers[index]) {
+        setTimeout(() => {
+          this.allMarkers[index].togglePopup()
+        }, 500)
+      }
 
-      this.searchResults.classList.remove('show')
+      this.hideResults()
     }
   }
 
-  // Search as location
-  searchAsLocation(event) {
-    const query = event.currentTarget.dataset.query
-    this.#searchLocation(query)
-  }
+  filterMapMarkers(searchTerm) {
+    // Hide all markers first
+    this.allMarkers.forEach(marker => {
+      if (marker.getElement()) {
+        marker.getElement().style.display = 'none'
+      }
+    })
 
-  #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-
-      const mapboxMarker = new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
-        .addTo(this.map)
-
-      this.allMarkers.push(mapboxMarker)
+    // Show matching markers
+    this.markersValue.forEach((marker, index) => {
+      const markerText = JSON.stringify(marker).toLowerCase()
+      if (markerText.includes(searchTerm)) {
+        if (this.allMarkers[index] && this.allMarkers[index].getElement()) {
+          this.allMarkers[index].getElement().style.display = 'block'
+        }
+      }
     })
   }
 
-  #fitMapToMarkers() {
+  showAllMarkers() {
+    this.allMarkers.forEach(marker => {
+      if (marker.getElement()) {
+        marker.getElement().style.display = 'block'
+      }
+    })
+  }
+
+  hideResults() {
+    this.searchResults.innerHTML = ''
+    this.searchResults.classList.remove('visible')
+  }
+
+  addAllMarkers() {
+    this.markersValue.forEach((marker, index) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+
+      const newMarker = new mapboxgl.Marker()
+        .setLngLat([marker.lng, marker.lat])
+        .setPopup(popup)
+        .addTo(this.map)
+
+      this.allMarkers.push(newMarker)
+    })
+  }
+
+  fitToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     bounds.extend([57.5522, -20.3484])
-    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
     this.map.fitBounds(bounds, {
       padding: 70,
       maxZoom: 15,
