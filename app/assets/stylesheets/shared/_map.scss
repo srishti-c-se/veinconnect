@@ -1,0 +1,225 @@
+/* ===== SIMPLE MODERN MAP STYLING ===== */
+
+/* Map Container */
+.map-container {
+  height: 600px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  margin: 1rem 0;
+}
+
+.mapboxgl-canvas-container,
+.mapboxgl-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.mapboxgl-ctrl-attrib,
+.mapboxgl-ctrl-attrib-button {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .map-container {
+    height: 450px;
+    border-radius: 8px;
+  }
+}
+
+/* Map Controls */
+.mapboxgl-ctrl-group {
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.mapboxgl-ctrl button {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+/* Search Box */
+.mapboxgl-ctrl-geocoder {
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid #e2e8f0 !important;
+  width: 280px;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  height: 40px;
+  padding: 0 12px 0 40px !important;
+  font-size: 14px;
+}
+
+/* Simple Markers */
+.map-marker {
+  cursor: pointer;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.marker-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #3b82f6;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.marker-dot.hospital { background: #ef4444; }
+.marker-dot.clinic { background: #10b981; }
+.marker-dot.blood-donation-center { background: #f59e0b; }
+.marker-dot.mobile-team { background: #8b5cf6; }
+
+.marker-dot:hover {
+  transform: scale(1.3);
+  transition: transform 0.2s ease;
+}
+
+/* Clean Info Window */
+.mapboxgl-popup {
+  max-width: 280px !important;
+}
+
+.mapboxgl-popup-content {
+  padding: 0 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e2e8f0;
+}
+
+.info-window {
+  padding: 16px;
+}
+
+.info-window h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.info-window p {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.info-window .address {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #4b5563;
+}
+
+.info-window .address i {
+  color: #3b82f6;
+  margin-top: 2px;
+}
+
+.info-window .phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1f2937;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.info-window .phone i {
+  color: #10b981;
+}
+
+.info-window-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  flex: 1;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: white;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+}
+
+.btn-outline:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+/* Simple Legend */
+.map-legend {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  font-size: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-dot.hospital { background: #ef4444; }
+.legend-dot.clinic { background: #10b981; }
+.legend-dot.blood-donation-center { background: #f59e0b; }
+.legend-dot.mobile-team { background: #8b5cf6; }
+
+/* Close button */
+.mapboxgl-popup-close-button {
+  right: 6px !important;
+  top: 6px !important;
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 16px !important;
+  color: #6b7280 !important;
+  background: white !important;
+  border-radius: 50% !important;
+}
+
+.mapboxgl-popup-close-button:hover {
+  color: #1f2937 !important;
+  background: #f9fafb !important;
+}
