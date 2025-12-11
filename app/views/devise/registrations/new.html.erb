@@ -1,47 +1,120 @@
-<h2>Sign up</h2>
+<div class="auth-wrapper">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name, user_type: params[:user_type])) do |f| %>
-  <%= f.error_notification %>
+  <h2 class="auth-title">Sign Up</h2>
 
-  <%= f.hidden_field :is_donor, value: (params[:user_type] == "donor") %>
+  <div class="auth-card shadow-sm">
 
-  <div class="form-inputs">
-    <%= f.input :first_name, autofocus: true, required: true %>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :date_of_birth, as: :date, start_year: 1900, end_year: Date.today.year - 18, required: true %>
-    <%= f.input :phone, required: true %>
-    <%= f.input :address, required: true %>
+    <%= simple_form_for(resource, as: resource_name,
+      url: registration_path(resource_name, user_type: params[:user_type])) do |f| %>
 
-    <%= f.input :blood_type,
-                collection: User::BLOOD_TYPES,
-                prompt: "Select your blood type",
-                required: true %>
+      <%= f.error_notification %>
 
-    <%= f.input :email, required: true, input_html: { autocomplete: "email" } %>
-    <%= f.input :password, required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+      <%= f.hidden_field :is_donor, value: (params[:user_type] == "donor") %>
 
-  <% if params[:user_type] == "donor" || resource.is_donor? %>
-    <h3>Donor information</h3>
 
-    <% f.object.build_donor if f.object.donor.nil? %>
+      <!-- First Name -->
+      <div class="mb-3">
+        <%= f.input :first_name,
+          label_html: { class: "form-label-custom" },
+          input_html: { class: "form-control form-input-custom" } %>
+      </div>
 
-    <%= f.simple_fields_for :donor do |dp| %>
-      <%= dp.input :last_donation_date, as: :date,
-                   input_html: { type: 'date', max: Date.today },
-                   label: "Last donation date (optional)",
-                   include_blank: true %>
+      <!-- Last Name -->
+      <div class="mb-3">
+        <%= f.input :last_name,
+          label_html: { class: "form-label-custom" },
+          input_html: { class: "form-control form-input-custom" } %>
+      </div>
+
+      <!-- Date of Birth (Simple Form auto-selects) -->
+      <div class="mb-3">
+        <%= f.input :date_of_birth,
+          as: :date,
+          order: [:year, :month, :day],
+          start_year: 1900,
+          end_year: Date.today.year - 18,
+          prompt: { year: "Year", month: "Month", day: "Day" },
+          label_html: { class: "form-label-custom" },
+          input_html: { class: "dob-select form-select" } %>
+      </div>
+
+      <!-- Phone -->
+      <div class="mb-3">
+        <%= f.input :phone,
+          label_html: { class: "form-label-custom" },
+          input_html: { class: "form-control form-input-custom" } %>
+      </div>
+
+      <!-- Address -->
+      <div class="mb-3">
+        <%= f.input :address,
+          label_html: { class: "form-label-custom" },
+          input_html: { class: "form-control form-input-custom" } %>
+      </div>
+
+      <!-- Blood Type -->
+      <div class="mb-3">
+        <%= f.input :blood_type,
+          collection: User::BLOOD_TYPES,
+          prompt: "Select blood type",
+          label_html: { class: "form-label-custom" },
+          input_html: { class: "form-select form-input-custom" } %>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <%= f.input :email,
+          label_html: { class: "form-label-custom" },
+          input_html: { class: "form-control form-input-custom", autocomplete: "email" } %>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <%= f.input :password,
+          hint_html: { class: "text-muted small" },
+          label_html: { class: "form-label-custom" },
+          input_html: { class: "form-control form-input-custom", autocomplete: "new-password" } %>
+      </div>
+
+      <!-- Password Confirmation -->
+      <div class="mb-3">
+        <%= f.input :password_confirmation,
+          label_html: { class: "form-label-custom" },
+          input_html: { class: "form-control form-input-custom", autocomplete: "new-password" } %>
+      </div>
+
+
+      <!-- Donor -->
+      <% if params[:user_type] == "donor" || resource.is_donor? %>
+
+        <h3 class="donor-title mt-4">Donor Information</h3>
+
+        <% f.object.build_donor if f.object.donor.nil? %>
+
+        <div class="mb-3">
+          <%= f.simple_fields_for :donor do |dp| %>
+            <%= dp.input :last_donation_date,
+              as: :date,
+              include_blank: true,
+              label: "Last donation (optional)",
+              label_html: { class: "form-label-custom" },
+              input_html: { class: "form-select form-input-custom", max: Date.today } %>
+          <% end %>
+        </div>
+
+      <% end %>
+
+      <!-- Submit -->
+      <div class="d-grid mt-3">
+        <%= f.button :submit, "Sign up", class: "btn btn-custom" %>
+      </div>
+
     <% end %>
-  <% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="auth-links">
+    <%= render "devise/shared/links" %>
+  </div>
+
+</div>
