@@ -1,99 +1,49 @@
 .navbar-lewagon {
-  justify-content: space-between;
   background-color: white;
-  color: red;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  height: 120px;
-}
+  padding: 0.5rem 1rem;
 
-.navbar-logo {
-  width: auto;
-  height: 65px;
-}
-
-.navbar-lewagon .navbar-brand {
-  color: red;
-  padding-top: 0 !important;
-  margin: 0 !important;
-}
-
-.navbar-lewagon .nav-link {
-  color: red !important;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  font-size: 0.9rem;
-}
-
-.navbar-lewagon .nav-link:hover {
-  color: black !important;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .btn {
-  color: white;
-  background-color: transparent;
-  border: 1px solid white;
-}
-
-.navbar-lewagon .btn:hover {
-  color: red;
-  background-color: white;
-}
-
-/* MOBILE STYLING */
-@media (max-width: 576px) {
-  .navbar-lewagon {
-    height: auto;
-    padding: 0.5rem 1rem;
+  .navbar-logo {
+    height: 65px;
+    width: auto;
   }
 
-  /* Full-width collapse menu */
-  .navbar-lewagon .navbar-collapse {
-    width: 100% !important;
-    background: white;
+  .nav-link {
+    color: red !important;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 1rem;
+
+    &:hover {
+      color: black !important;
+    }
+  }
+
+  .navbar-collapse {
+    flex-grow: 0;   // DO NOT let collapse take full width
+    background-color: white;
     padding: 1rem;
     margin-top: 0.5rem;
-    flex-grow: 1;
     z-index: 2000;
   }
 
-  .navbar-lewagon .nav-link {
-    padding: 0.75rem 0;
-    text-align: left;
-    font-size: 1rem;
+  /* Dropdowns aligned to parent */
+  .dropdown-menu {
+    min-width: 10rem;   // auto width
+    right: auto;
+    left: 0;
   }
 
-  /* Make dropdowns flow naturally under the clicked link */
-  .navbar-lewagon .dropdown-menu {
-    position: static !important;
-    float: none !important;
-    transform: none !important;
-    width: 100%;
-    margin: 0.25rem 0;
-  }
-
-  /* Align dropdown items to left on mobile */
-  .navbar-lewagon .dropdown-item {
-    text-align: left;
-  }
-
-  /* Fix notification badge positioning on mobile */
+  /* Notifications badge */
   #notification-count {
-    position: static !important;
-    display: inline-block;
-    margin-left: 0.5rem;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
+    position: absolute;
+    top: 0;
+    start: 100%;
+    transform: translate(-50%, -50%);
   }
 
-  /* Avatar dropdown full width on mobile */
-  .navbar-lewagon .dropdown-menu-end {
-    right: auto !important;
-    left: 0 !important;
+  /* Avatar dropdown */
+  .dropdown-menu-end {
+    right: 0 !important;
+    left: auto !important;
   }
 }
