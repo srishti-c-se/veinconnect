@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 .chat-icon-button:hover {
@@ -66,6 +66,11 @@
 
 .chat-modal-overlay.hidden {
   display: none;
+}
+
+/* Try to hide the icon when ANY modal overlay on page is open */
+body:has(.chat-modal-overlay:not(.hidden)) .chat-icon-wrapper {
+  display: none !important;
 }
 
 .chat-modal-container {

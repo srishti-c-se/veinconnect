@@ -1,13 +1,13 @@
-/* Perfect fit for Samsung S23 (width: 384px) */
 @media (max-width: 400px) {
 
   body {
     zoom: 0.92;
   }
 
-  // .container.my-1 {
-  //   padding-bottom: 100px !important;
-  // }
+  .container.my-1 {
+    position: relative;
+    padding-bottom: 20px !important;
+  }
 
   .card {
     padding: 0.8rem !important;
@@ -41,6 +41,7 @@
 
   #messages {
     height: 180px !important;
+    margin-bottom: 70px !important;
   }
 
   .btn {
@@ -48,7 +49,15 @@
     padding-bottom: 0.6rem !important;
   }
 
-  // .message-form {
-  //   margin-bottom: 20px !important;
-  // }
+  .message-form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 0px 15px !important;
+    margin: 0 !important;
+    border-top: 1px solid #dee2e6;
+    z-index: 1000;
+  }
 }
