@@ -1,20 +1,5 @@
 <div data-controller="chat-modal">
-  <%# Floating chat icon %>
-  <div class="chat-icon-wrapper">
-    <%# Button to open/close the chat modal %>
-    <button class="chat-icon-button"
-            data-action="click->chat-modal#toggle"
-            aria-label="Open chat">
-      <svg class="chat-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-      </svg>
-      <span class="chat-notification-badge hidden"
-            data-chat-modal-target="notification">
-      </span>
-    </button>
-  </div>
-
-  <%# Modal covers entire screen when modal is open %>
+  <%# Modal covers entire screen when modal is open - MOVED TO TOP %>
   <div data-chat-modal-target="modal" class="chat-modal-overlay hidden"
         data-action="click->chat-modal#close">
 
@@ -83,4 +68,19 @@
 
     </div> <%# closes chat-modal-container %>
   </div> <%# closes chat-modal-overlay %>
-</div> <%# closes data-controller div %>
+
+  <%# Floating chat icon - MOVED TO BOTTOM (after modal) %>
+  <div class="chat-icon-wrapper">
+    <%# Button to open/close the chat modal %>
+    <button class="chat-icon-button"
+            data-action="click->chat-modal#toggle"
+            aria-label="Open chat">
+      <svg class="chat-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+      </svg>
+      <span class="chat-notification-badge hidden"
+            data-chat-modal-target="notification">
+      </span>
+    </button>
+  </div>
+</div> 
