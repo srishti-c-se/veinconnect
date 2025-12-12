@@ -1,49 +1,110 @@
 .navbar-lewagon {
+  justify-content: space-between;
   background-color: white;
-  padding: 0.5rem 1rem;
+  color: red;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  height: 70px; /* Reduced from 120px */
+  display: flex;
+  align-items: center;
+}
 
-  .navbar-logo {
-    height: 65px;
-    width: auto;
+.navbar-logo {
+  width: auto;
+  height: 55px;
+}
+
+/* Brand */
+.navbar-lewagon .navbar-brand {
+  color: red;
+  padding-top: 0 !important;
+  margin: 0 !important;
+}
+
+/* Links */
+.navbar-lewagon .nav-link {
+  color: red !important;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.navbar-lewagon .nav-link:hover {
+  color: black !important;
+}
+
+/* Collapse container (desktop defaults) */
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-collapse.collapse {
+  display: none !important;
+}
+
+.navbar-collapse.collapse.show {
+  display: block !important;
+}
+
+.navbar-toggler {
+  border: none !important;
+  background: transparent !important;
+  padding: 0.25rem 0.5rem !important;
+  width: auto !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(20%); /* darker hamburger */
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (max-width: 576px) {
+
+  .navbar-lewagon {
+    height: auto;
+    padding: 0.5rem 1rem;
   }
 
-  .nav-link {
-    color: red !important;
-    padding: 0.75rem 1rem;
-    text-align: left;
-    font-size: 1rem;
-
-    &:hover {
-      color: black !important;
-    }
-  }
-
-  .navbar-collapse {
-    flex-grow: 0;   // DO NOT let collapse take full width
-    background-color: white;
+  .navbar-lewagon .navbar-collapse {
+    width: 100% !important;
+    background: white;
     padding: 1rem;
     margin-top: 0.5rem;
+    flex-grow: 1;
     z-index: 2000;
+    border-radius: 0 0 8px 8px;
   }
 
-  /* Dropdowns aligned to parent */
-  .dropdown-menu {
-    min-width: 10rem;   // auto width
-    right: auto;
-    left: 0;
+  .navbar-lewagon .nav-link {
+    padding: 0.75rem 0;
+    text-align: left;
+    font-size: 1rem;
   }
 
-  /* Notifications badge */
+  .navbar-lewagon .dropdown-menu {
+    position: static !important;
+    float: none !important;
+    transform: none !important;
+    width: 100%;
+    margin: 0.25rem 0;
+  }
+
+  .navbar-lewagon .dropdown-item {
+    text-align: left;
+  }
+
   #notification-count {
-    position: absolute;
-    top: 0;
-    start: 100%;
-    transform: translate(-50%, -50%);
+    position: static !important;
+    display: inline-block;
+    margin-left: 0.5rem;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
   }
 
-  /* Avatar dropdown */
-  .dropdown-menu-end {
-    right: 0 !important;
-    left: auto !important;
+  .navbar-lewagon .dropdown-menu-end {
+    right: auto !important;
+    left: 0 !important;
   }
 }
